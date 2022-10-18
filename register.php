@@ -3,7 +3,7 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
+$username = $password = $name = $adress =$confirm_password =$phone =$email= "";
 $username_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_password = $password; // Creates a password hash
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -89,10 +89,103 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
+
+    // Adding user Name and Address to user_detail
     
-    // Close connection
-    mysqli_close($link);
+    $em = "SELECT id FROM users WHERE username = '$username'";
+    $q = mysqli_query($link,$em);
+    $n = mysqli_fetch_array($q);
+    $id = intval($n['id']);
+    $name = trim($_POST["name"]);
+    $address  = trim($_POST["address"]);
+    $sql = "INSERT INTO user_detail  VALUES (?,?,?)";
+
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "sss", $id, $name, $adress);
+        
+        // Set parameters
+        $param_id = $id;
+        $param_name = $name;
+        $param_address = $address;
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)){
+            // Redirect to login page
+            header("location: login.php");
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
+
+    //Adding user email to user_email
+
+    $em = "SELECT id FROM users WHERE username = '$username'";
+    $q = mysqli_query($link,$em);
+    $n = mysqli_fetch_array($q);
+    $id = intval($n['id']);
+    $email = trim($_POST["email"]);
+    $sql = "INSERT INTO user_email  VALUES (?,?)";
+
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "ss", $id, $email);
+        
+        // Set parameters
+        $param_id = $id;
+        $param_email = $email;
+
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)){
+            // Redirect to login page
+            header("location: login.php");
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
+
+    //Adding user phone to user_phone
+
+    $em = "SELECT id FROM users WHERE username = '$username'";
+    $q = mysqli_query($link,$em);
+    $n = mysqli_fetch_array($q);
+    $id = intval($n['id']);
+    $phone = trim($_POST["phone"]);
+    $sql = "INSERT INTO user_phone  VALUES (?,?)";
+
+    //echo gettype($phone)."\n";
+    //echo  $phone;
+
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "ss", $id, $phone);
+        
+        // Set parameters
+        $param_id = $id;
+        $param_phone = $phone;
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)){
+            // Redirect to login page
+            header("location: login.php");
+        } else{
+            echo $stmt->error;
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
 }
+
+
 ?>
  
 <!DOCTYPE html>
@@ -112,6 +205,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+            
+            <div class="form-group">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
@@ -126,6 +225,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
+            
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" name="address" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="phone" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
