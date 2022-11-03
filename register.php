@@ -3,9 +3,10 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = $name = $adress =$confirm_password =$phone =$email= "";
+$username = $password = $firstname =$lastname = $address =$confirm_password =$phone =$gender=$email= "";
 $username_err = $password_err = $confirm_password_err = "";
  
+// email phone gender separate table 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
@@ -16,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT user_id FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -63,26 +64,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     
+
+   
+
+
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
+        $username =  trim($_POST["username"]);
+        $first_name= trim($_POST["firstname"]);
+        $last_name = trim($_POST["lastname"]);
+        $address = trim($_POST["address"]);
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-         
+        $sql = "INSERT INTO users(username, password, first_name, last_name, address)  VALUES (?,?,?,?,?)";
+        //  INSERT INTO users(username, password, first_name, last_name, address) 
+        //  VALUES('uname', 'pword', 'fname', 'lname', '102 street, city, 293854');
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
-            // Set parameters
-            $param_username = $username;
-            $param_password = $password; // Creates a password hash
+            mysqli_stmt_bind_param($stmt, "sssss", $username, $password,$first_name,$last_name,$address);
+
+             // Creates a password hash
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: login.php");
+
+                #header("location: login.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
+                echo $stmt->error;
             }
 
             // Close statement
@@ -90,59 +99,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    // Adding user Name and Address to user_detail
-    
-    $em = "SELECT id FROM users WHERE username = '$username'";
-    $q = mysqli_query($link,$em);
-    $n = mysqli_fetch_array($q);
-    $id = intval($n['id']);
-    $name = trim($_POST["name"]);
-    $address  = trim($_POST["address"]);
-    $sql = "INSERT INTO user_detail  VALUES (?,?,?)";
-
-    if($stmt = mysqli_prepare($link, $sql)){
-        // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "sss", $id, $name, $adress);
-        
-        // Set parameters
-        $param_id = $id;
-        $param_name = $name;
-        $param_address = $address;
-        
-        // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            // Redirect to login page
-            header("location: login.php");
-        } else{
-            echo "Oops! Something went wrong. Please try again later.";
-        }
-
-        // Close statement
-        mysqli_stmt_close($stmt);
-    }
-
     //Adding user email to user_email
 
-    $em = "SELECT id FROM users WHERE username = '$username'";
+    $em = "SELECT user_id FROM users WHERE username = '$username'";
     $q = mysqli_query($link,$em);
     $n = mysqli_fetch_array($q);
-    $id = intval($n['id']);
+    $user_id = intval($n['user_id']);
     $email = trim($_POST["email"]);
     $sql = "INSERT INTO user_email  VALUES (?,?)";
 
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "ss", $id, $email);
+        mysqli_stmt_bind_param($stmt, "ss", $user_id, $email);
         
         // Set parameters
-        $param_id = $id;
+        $param_user_id = $user_id;
         $param_email = $email;
 
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Redirect to login page
-            header("location: login.php");
+            #header("location: login.php");
         } else{
             echo "Oops! Something went wrong. Please try again later.";
         }
@@ -153,10 +131,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //Adding user phone to user_phone
 
-    $em = "SELECT id FROM users WHERE username = '$username'";
+    $em = "SELECT user_ FROM users WHERE username = '$username'";
     $q = mysqli_query($link,$em);
     $n = mysqli_fetch_array($q);
-    $id = intval($n['id']);
+    $id = intval($n['user_id']);
     $phone = trim($_POST["phone"]);
     $sql = "INSERT INTO user_phone  VALUES (?,?)";
 
@@ -165,11 +143,44 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "ss", $id, $phone);
+        mysqli_stmt_bind_param($stmt, "ss", $user_id, $phone);
         
         // Set parameters
-        $param_id = $id;
+        $param_user_id = $user_id;
         $param_phone = $phone;
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)){
+            // Redirect to login page
+            #header("location: login.php");
+        } else{
+            echo $stmt->error;
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
+
+    //Adding user gender to user_gender
+
+    $em = "SELECT user_id FROM users WHERE username = '$username'";
+    $q = mysqli_query($link,$em);
+    $n = mysqli_fetch_array($q);
+    $id = intval($n['user_id']);
+    $gender = trim($_POST["gender"]);
+    $sql = "INSERT INTO user_gender  VALUES (?,?)";
+
+    //echo gettype($phone)."\n";
+    //echo  $phone;
+
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "ss", $user_id, $gender);
+        
+        // Set parameters
+        $param_user_id = $user_id;
+        $param_gender = $gender;
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
@@ -227,6 +238,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             
             <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="firstname" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="lastname" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+
+            <div class="form-group">
                 <label>Address</label>
                 <input type="text" name="address" class="form-control ">
                 <span class="invalid-feedback"></span>
@@ -240,6 +263,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <label>Phone</label>
                 <input type="text" name="phone" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+            <div class="form-group">
+                <label>Gender</label>
+                <input type="text" name="gender" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div> 
 

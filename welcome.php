@@ -20,9 +20,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </style>
 </head>
 <body>
+    <?php include('header.html') ?> 
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to Ultimate 怨种 Website.</h1>
     <p>
         <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
     </p>
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+    <?php include('footer.html') ?>
 </body>
-</html>
+</html>`
