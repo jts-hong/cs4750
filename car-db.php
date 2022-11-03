@@ -1,13 +1,11 @@
 <?php
-require_once "config.php";
+
 function getAllCars()
 {
     global $link; 
-    $query = "SELECT * FROM cars";
-    $statement = $link->prepare($query);
-    $statement->execute();
-    $result = $statement->fetchAll();   // fetch()
-    $statement->closeCursor();
+    $sql = "SELECT * FROM vehicle";
+    $result = mysqli_query($link, "SELECT * FROM vehicle");
+
     return $result;
 }
-// ?>
+ ?>
