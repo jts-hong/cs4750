@@ -23,12 +23,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
     <?php include('header.html') ?> 
+    <br></br>
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to Ultimate 怨种 Website.</h1>
 
-
     <?php  
-      
-    
         $per_page_record = 10;  // Number of entries to show in a page.   
         if (isset($_GET["page"])) {    
             $page  = $_GET["page"];    
@@ -42,6 +40,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $query = "SELECT * FROM vehicle LIMIT $start_from, $per_page_record";     
         $rs_result = mysqli_query ($link, $query);    
     ?>    
+    
+    
     <?php while ($row = mysqli_fetch_array($rs_result)) { ?>     
         <div class="album py-5 bg-light">
             <div class="container">
@@ -95,15 +95,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     if($page<$total_pages){   
         echo "<a class='btn btn-outline-primary' href='welcome.php?page=".($page+1)."'>  Next </a>";  
     }
-    ?>    
-    <h5></h5><h5></h5>
-    <div class="inline">   
+    ?>      
         <input id="page" type="number" min="1" max="<?php echo $total_pages?>"   
         placeholder="<?php echo $page."/".$total_pages; ?>" required>   
         <button onClick="go2Page();"class="btn btn-primary">Go</button>   
-    </div>    
-  
-
     <script>   
         function go2Page()   
         {   
@@ -112,10 +107,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             window.location.href = 'welcome.php?page='+page;   
         }   
     </script>  
-    <h5></h5>
-    <p>
-        <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-    </p>
+    <br></br>
+    <br></br>
     <?php include('footer.html') ?>
 </body>
 </html>
