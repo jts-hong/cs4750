@@ -26,54 +26,96 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to Ultimate 怨种 Website.</h1>
 
 
+    <?php  
+      
+    
+        $per_page_record = 10;  // Number of entries to show in a page.   
+        if (isset($_GET["page"])) {    
+            $page  = $_GET["page"];    
+        }    
+        else {    
+            $page=1;    
+        }    
+    
+        $start_from = ($page-1) * $per_page_record;     
+    
+        $query = "SELECT * FROM vehicle LIMIT $start_from, $per_page_record";     
+        $rs_result = mysqli_query ($link, $query);    
+    ?>    
+    <?php while ($row = mysqli_fetch_array($rs_result)) { ?>     
+        <div class="album py-5 bg-light">
+            <div class="container">
 
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <?php echo $row['make']; ?>
+                                    <?php echo $row['year']; ?>
+                                    <?php echo $row['model']; ?>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Like</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
                                 </div>
-                                <small class="text-muted">9 mins</small>
                             </div>
                         </div>
                     </div>
-                </div>
+
             </div>
         </div>
-    </div>
+    <?php };?>   
+    <?php  
+    $query = "SELECT COUNT(*) FROM vehicle";     
+    $rs_result = mysqli_query($link, $query);     
+    $row = mysqli_fetch_row($rs_result);     
+    $total_records = $row[0];     
+    echo "</br>";     
+    // Number of pages required.   
+    $total_pages = ceil($total_records / $per_page_record);     
+    $pagLink = "";       
+    if($page>=2){   
+        echo "<a class='btn btn-outline-primary' href='welcome.php?page=".($page-1)."'>  Prev </a>";   
+    }         
+    // for ($i=1; $i<=$total_pages; $i++) {   
+    //     if ($i == $page) {   
+    //         $pagLink .= "<a class = 'active' href='welcome.php?page="  
+    //                                             .$i."'>".$i." </a>";   
+    //     }               
+    //     else  {   
+    //         $pagLink .= "<a href='welcome.php?page=".$i."'>   
+    //                                             ".$i." </a>";     
+    //     }   
+    // };     
+    echo $pagLink;   
+    if($page<$total_pages){   
+        echo "<a class='btn btn-outline-primary' href='welcome.php?page=".($page+1)."'>  Next </a>";  
+    }
+    ?>    
+    <h5></h5><h5></h5>
+    <div class="inline">   
+        <input id="page" type="number" min="1" max="<?php echo $total_pages?>"   
+        placeholder="<?php echo $page."/".$total_pages; ?>" required>   
+        <button onClick="go2Page();"class="btn btn-primary">Go</button>   
+    </div>    
+  
 
-
-
-
-
-    <div class="container">
-        <table class="w3-table w3-bordered w3-card-4 center" style="width:70%">
-            <thead>
-                <tr style="background-color:#B0B0B0">
-                    <th width="30%">Make</th>
-                    <th width="30%">Year</th>
-                    <th width="30%">model</th>
-                </tr>
-                </thead>
-                <?php foreach ($list_of_cars as $car_info): ?>
-                <tr>
-                    <td><?php echo $car_info['make']; ?></td>
-                    <td><?php echo $car_info['year']; ?></td>
-                    <td><?php echo $car_info['model']; ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
+    <script>   
+        function go2Page()   
+        {   
+            var page = document.getElementById("page").value;   
+            page = ((page><?php echo $total_pages; ?>)?<?php echo $total_pages; ?>:((page<1)?1:page));   
+            window.location.href = 'welcome.php?page='+page;   
+        }   
+    </script>  
+    <h5></h5>
     <p>
         <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
     </p>
     <?php include('footer.html') ?>
 </body>
-</html>`
+</html>
