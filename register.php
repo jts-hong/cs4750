@@ -74,6 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $first_name= trim($_POST["firstname"]);
         $last_name = trim($_POST["lastname"]);
         $address = trim($_POST["address"]);
+        $password = password_hash($password, PASSWORD_DEFAULT);
         // Prepare an insert statement
         $sql = "INSERT INTO users(username, password, first_name, last_name, address)  VALUES (?,?,?,?,?)";
         //  INSERT INTO users(username, password, first_name, last_name, address) 
@@ -88,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
 
-                #header("location: login.php");
+                header("location: login.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
                 echo $stmt->error;
@@ -120,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Redirect to login page
-            #header("location: login.php");
+            header("location: login.php");
         } else{
             echo "Oops! Something went wrong. Please try again later.";
         }
@@ -152,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
             // Redirect to login page
-            #header("location: login.php");
+            header("location: login.php");
         } else{
             echo $stmt->error;
             echo "Oops! Something went wrong. Please try again later.";
