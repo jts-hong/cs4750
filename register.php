@@ -191,6 +191,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Close statement
         mysqli_stmt_close($stmt);
     }
+
+    $em = "SELECT user_id FROM users WHERE username = '$username'";
+    $q = mysqli_query($link,$em);
+    $n = mysqli_fetch_array($q);
+    $id = intval($n['user_id']);
+    $desire_type = trim($_POST["desire_type"]);
+    $budget = trim($_POST["budget"]);
+    $sql = "INSERT INTO buyer  VALUES (?,?,?)";
+
+    //echo gettype($phone)."\n";
+    //echo  $phone;
+
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "sss", $user_id,$desire_type, $budget);
+        
+        // Set parameters
+        $param_user_id = $user_id;
+        $param_desire_type = $desire_type;
+        $param_budget = $budget;
+        
+        // Attempt to execute the prepared statement
+        if(mysqli_stmt_execute($stmt)){
+            // Redirect to login page
+            header("location: login.php");
+        } else{
+            echo $stmt->error;
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
     // Adding Seller Info
     if(isset($_POST['checkbox'])) {
 
@@ -354,6 +387,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <label>Gender</label>
                 <input type="text" name="gender" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+            <div class="form-group">
+                <label>Desire Type</label>
+                <input type="text" name="desire_type" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div> 
+            <div class="form-group">
+                <label>Budget</label>
+                <input type="text" name="budget" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div> 
             <h6> Do you want to become a Seller?</h6>

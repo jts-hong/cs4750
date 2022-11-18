@@ -1,109 +1,13 @@
 <?php
-    // Include config file
-    session_start();
-    require("config.php");
-    // Check if the user is logged in, if not then redirect him to login page
-    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-        header("location: login.php");
-        exit;
-    }
+// Include config file
+session_start();
+require("config.php");
+// Check if the user is logged in, if not then redirect him to login page
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 
-    //Adding user email to user_email
-    // $username = $_SESSION["username"];
-
-
-    // $em = "SELECT user_id FROM users WHERE username = '$username'";
-    // $q = mysqli_query($link,$em);
-    // $n = mysqli_fetch_array($q);
-    // $user_id = intval($n['user_id']);
-    // $email = trim($_POST["email"]);
-    // $sql = "UPDATE user_email SET email= (?) WHERE user_id = '$user_id'";
-
-    // if($stmt = mysqli_prepare($link, $sql)){
-    //     // Bind variables to the prepared statement as parameters
-    //     mysqli_stmt_bind_param($stmt, "s",  $email);
-        
-    //     // Set parameters
-    //     $param_email = $email;
-
-        
-    //     // Attempt to execute the prepared statement
-    //     if(mysqli_stmt_execute($stmt)){
-    //         // Redirect to login page
-    //         #header("location: login.php");
-    //     } else{
-    //         echo "Oops! Something went wrong. Please try again later.";
-    //     }
-
-    //     // Close statement
-    //     mysqli_stmt_close($stmt);
-    // }
-
-    // //Adding user phone to user_phone
-
-    // $em = "SELECT user_id FROM users WHERE username = '$username'";
-    // $q = mysqli_query($link,$em);
-    // $n = mysqli_fetch_array($q);
-    // $id = intval($n['user_id']);
-    // $phone = trim($_POST["phone"]);
-    // $sql = "INSERT INTO user_phone  VALUES (?,?)";
-
-    // //echo gettype($phone)."\n";
-    // //echo  $phone;
-
-    // if($stmt = mysqli_prepare($link, $sql)){
-    //     // Bind variables to the prepared statement as parameters
-    //     mysqli_stmt_bind_param($stmt, "ss", $user_id, $phone);
-        
-    //     // Set parameters
-    //     $param_user_id = $user_id;
-    //     $param_phone = $phone;
-        
-    //     // Attempt to execute the prepared statement
-    //     if(mysqli_stmt_execute($stmt)){
-    //         // Redirect to login page
-    //         #header("location: login.php");
-    //     } else{
-    //         echo $stmt->error;
-    //         echo "Oops! Something went wrong. Please try again later.";
-    //     }
-
-    //     // Close statement
-    //     mysqli_stmt_close($stmt);
-    // }
-
-    // //Adding user gender to user_gender
-
-    // $em = "SELECT user_id FROM users WHERE username = '$username'";
-    // $q = mysqli_query($link,$em);
-    // $n = mysqli_fetch_array($q);
-    // $id = intval($n['user_id']);
-    // $gender = trim($_POST["gender"]);
-    // $sql = "UPDATE user_gender SET gender= (?) WHERE user_id = '$user_id'";
-
-    // //echo gettype($phone)."\n";
-    // //echo  $phone;
-
-    // if($stmt = mysqli_prepare($link, $sql)){
-    //     // Bind variables to the prepared statement as parameters
-    //     mysqli_stmt_bind_param($stmt, "s" ,$gender);
-        
-    //     // Set parameters
-
-    //     $param_gender = $gender;
-        
-    //     // Attempt to execute the prepared statement
-    //     if(mysqli_stmt_execute($stmt)){
-    //         // Redirect to login page
-    //         #header("location: login.php");
-    //     } else{
-    //         echo $stmt->error;
-    //         echo "Oops! Something went wrong. Please try again later.";
-    //     }
-
-    //     // Close statement
-    //     mysqli_stmt_close($stmt);
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -117,6 +21,7 @@
         body {
             font: 14px sans-serif;
         }
+
         .wrapper {
             width: 360px;
             padding: 20px;
@@ -172,6 +77,7 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
+
         body {
             margin: 0;
             padding: 0;
@@ -183,14 +89,124 @@
             text-align: left;
             width: 800px;
         }
-
     </style>
 </head>
 
 <body>
-    <?php include('header.html') ?>
+
 
     <?php
+    $username = $_SESSION["username"];
+
+    $query = "SELECT * FROM users WHERE username = '$username'";
+    $rs_result = mysqli_query($link, $query);
+    $row = mysqli_fetch_array($rs_result);
+
+    $user_id = $row["user_id"];
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $last_name = $_POST['last_name'];
+        $first_name = $_POST['first_name'];
+        $address = $_POST['address'];
+        if ($stmt = mysqli_prepare($link, "UPDATE users SET first_name=?,last_name=?, address=? WHERE user_id='$user_id'")) {
+
+            mysqli_stmt_bind_param($stmt, "sss", $first_name, $last_name, $address);
+
+            // Set parameters
+            $param_first_name = $first_name;
+            $param_last_name = $last_name;
+            $param_address = $address;
+
+
+
+            // Attempt to execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+            } else {
+                echo $stmt->error;
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+
+        $email = $_POST['email'];
+        if ($stmt = mysqli_prepare($link, "UPDATE user_email SET email=? WHERE user_id='$user_id'")) {
+
+            mysqli_stmt_bind_param($stmt, "s", $email);
+
+            // Set parameters
+            $param_email = $email;
+            // Attempt to execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+            } else {
+                echo $stmt->error;
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+        $gender = $_POST['gender'];
+        if ($stmt = mysqli_prepare($link, "UPDATE user_gender SET gender=? WHERE user_id='$user_id'")) {
+
+            mysqli_stmt_bind_param($stmt, "s", $gender);
+
+            // Set parameters
+            $param_gender = $gender;
+            // Attempt to execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+            } else {
+                echo $stmt->error;
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+
+        $phone = $_POST['phone'];
+        if ($stmt = mysqli_prepare($link, "INSERT INTO user_phone VALUES ('$user_id',?)")) {
+
+            mysqli_stmt_bind_param($stmt, "s", $phone);
+
+            // Set parameters
+            $param_phone = $phone;
+            // Attempt to execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+            } else {
+                echo $stmt->error;
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+        $desire_type = $_POST['desire_type'];
+        $budget = $_POST['budget'];
+        if ($stmt = mysqli_prepare($link, "UPDATE buyer SET desire_type=?,budget=? WHERE user_id='$user_id'")) {
+
+            mysqli_stmt_bind_param($stmt, "sss", $desire_type, $budget);
+
+            // Set parameters
+            $param_desire_type = $desire_type;
+            $param_budget = $budget;
+            // Attempt to execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+            } else {
+                echo $stmt->error;
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+        $message = "Record Modified Successfully";
+    }
+
+
     $username = $_SESSION["username"];
 
     $query1 = "SELECT * FROM users WHERE username = '$username'";
@@ -210,19 +226,28 @@
     $query4 = "SELECT * FROM user_phone WHERE user_id = '$user_id'";
     $rs_result4 = mysqli_query($link, $query4);
 
+    $query5 = "SELECT * FROM buyer WHERE user_id = '$user_id'";
+    $rs_result5 = mysqli_query($link, $query5);
+    $row5 = mysqli_fetch_array($rs_result5);
 
     ?>
 
     <br></br>
     <div class="wrapper" style="width:600px;margin:0 auto;">
+        <?php include('header.html') ?>
         <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. This is your Account Page</h2>
-
+        <div><?php if (isset($message)) {
+                    echo $message;
+                    echo $user_id;
+                    echo $first_name;
+                } ?></div>
         <div class="list-group w-auto">
             <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                 <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
                         <h6 class="mb-0">First Name</h6>
                         <?php echo $row1['first_name']; ?>
+
                     </div>
                 </div>
             </a>
@@ -271,46 +296,74 @@
                     </div>
                 </a>
             <?php }; ?>
+            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <h6 class="mb-0">Desire Type</h6>
+                        <?php echo $row5['desire_type']; ?>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <h6 class="mb-0">Budget</h6>
+                        <?php echo $row5['budget']; ?>
+                    </div>
+                </div>
+            </a>
         </div>
         <br></br>
-        <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="firstname" class="form-control ">
-            <span class="invalid-feedback"></span>
-        </div> 
+        <form method="POST">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
 
-        <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="lastname" class="form-control ">
-            <span class="invalid-feedback"></span>
-        </div> 
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
 
-        <div class="form-group">
-            <label>Address</label>
-            <input type="text" name="address" class="form-control ">
-            <span class="invalid-feedback"></span>
-        </div> 
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" name="address" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
 
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" name="email" class="form-control ">
-            <span class="invalid-feedback"></span>
-        </div> 
-        <div class="form-group">
-            <label>Phone</label>
-            <input type="text" name="phone" class="form-control ">
-            <span class="invalid-feedback"></span>
-        </div> 
-        <div class="form-group">
-            <label>Gender</label>
-            <input type="text" name="gender" class="form-control ">
-            <span class="invalid-feedback"></span>
-        </div> 
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Submit">
-            <input type="reset" class="btn btn-secondary ml-2" value="Reset">
-        </div>
-        <a href="welcome.php"class="btn btn-primary">Go back to Home Page</a>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <input type="text" name="gender" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="phone" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <label>Desire Type</label>
+                <input type="text" name="desire_type" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <label>Budget</label>
+                <input type="text" name="budget" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Update">
+            </div>
+        </form>
 
     </div>
 
@@ -318,8 +371,8 @@
     <br></br>
     <br></br>
     <br></br>
-        
-    
+
+
 </body>
 
 </html>
