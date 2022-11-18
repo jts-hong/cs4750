@@ -63,10 +63,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Password did not match.";
         }
     }
-    
-
-   
-
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
@@ -132,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //Adding user phone to user_phone
 
-    $em = "SELECT user_ FROM users WHERE username = '$username'";
+    $em = "SELECT user_id FROM users WHERE username = '$username'";
     $q = mysqli_query($link,$em);
     $n = mysqli_fetch_array($q);
     $id = intval($n['user_id']);
@@ -195,8 +191,42 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Close statement
         mysqli_stmt_close($stmt);
     }
-}
+    // Adding Seller Info
+    if(isset($_POST['checkbox'])) {
 
+    } else { 
+        $em = "SELECT user_id FROM users WHERE username = '$username'";
+        $q = mysqli_query($link,$em);
+        $n = mysqli_fetch_array($q);
+        $id = intval($n['user_id']);
+        $rating = "0";
+        $num_rating = "0";
+        $sql = "INSERT INTO seller  VALUES (?,?,?)";
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "sss", $user_id, $rating,$num_rating);
+            
+            // Set parameters
+            $param_user_id = $user_id;
+            $param_rating = $rating;
+            $param_num_rating = $num_rating;
+
+            
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                // Redirect to login page
+                #header("location: login.php");
+            } else{
+                echo $stmt->error;
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+    
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }     
+
+    }
+}
 
 ?>
  
@@ -209,6 +239,61 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <style>
         body{ font: 14px sans-serif; }
         .wrapper{ width: 360px; padding: 20px; }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+
     </style>
 </head>
 <body>
@@ -271,7 +356,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="text" name="gender" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div> 
-
+            <h6> Do you want to become a Seller?</h6>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">

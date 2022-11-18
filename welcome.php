@@ -9,6 +9,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+
 ?>
  
 <!DOCTYPE html>
@@ -45,7 +47,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <?php while ($row = mysqli_fetch_array($rs_result)) { ?>     
         <div class="album py-5 bg-light">
             <div class="container">
-
+            
                     <div class="col">
                         <div class="card shadow-sm">
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
@@ -80,17 +82,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     $pagLink = "";       
     if($page>=2){   
         echo "<a class='btn btn-outline-primary' href='welcome.php?page=".($page-1)."'>  Prev </a>";   
-    }         
-    // for ($i=1; $i<=$total_pages; $i++) {   
-    //     if ($i == $page) {   
-    //         $pagLink .= "<a class = 'active' href='welcome.php?page="  
-    //                                             .$i."'>".$i." </a>";   
-    //     }               
-    //     else  {   
-    //         $pagLink .= "<a href='welcome.php?page=".$i."'>   
-    //                                             ".$i." </a>";     
-    //     }   
-    // };     
+    }           
     echo $pagLink;   
     if($page<$total_pages){   
         echo "<a class='btn btn-outline-primary' href='welcome.php?page=".($page+1)."'>  Next </a>";  
@@ -107,6 +99,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             window.location.href = 'welcome.php?page='+page;   
         }   
     </script>  
+    <br></br>
     <br></br>
     <br></br>
     <?php include('footer.html') ?>
