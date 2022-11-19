@@ -5,10 +5,12 @@ require("car-db.php");
 require("config.php");
 $list_of_cars = getAllCars();
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
+
+
 ?>
 
 <?php
@@ -24,32 +26,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body{ font: 14px sans-serif; text-align: center; }
+        body {
+            font: 14px sans-serif;
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
     <?php include('header.html') ?>
     <br></br>
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["user_id"]); ?></b>. Welcome to CARHUGE</h1>
 
     <?php
-        $per_page_record = 10;  // Number of entries to show in a page.
-        if (isset($_GET["page"])) {
-            $page  = $_GET["page"];
-        }
-        else {
-            $page=1;
-        }
+    $per_page_record = 10;  // Number of entries to show in a page.   
+    if (isset($_GET["page"])) {
+        $page  = $_GET["page"];
+    } else {
+        $page = 1;
+    }
 
-        $start_from = ($page-1) * $per_page_record;
 
-        $query = "SELECT * FROM vehicle LIMIT $start_from, $per_page_record";
-        $rs_result = mysqli_query ($link, $query);
+    $start_from = ($page - 1) * $per_page_record;
+
+    $query = "SELECT * FROM vehicle  LIMIT $start_from, $per_page_record";
+    $rs_result = mysqli_query($link, $query);
     ?>
 
 
@@ -80,41 +87,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                             </div>
                         </div>
                     </div>
+                </div>
 
             </div>
         </div>
-    <?php };?>
+    <?php }; ?>
     <?php
     $query = "SELECT COUNT(*) FROM vehicle";
     $rs_result = mysqli_query($link, $query);
     $row = mysqli_fetch_row($rs_result);
     $total_records = $row[0];
     echo "</br>";
-    // Number of pages required.
+    // Number of pages required.   
     $total_pages = ceil($total_records / $per_page_record);
     $pagLink = "";
-    if($page>=2){
-        echo "<a class='btn btn-outline-primary' href='welcome.php?page=".($page-1)."'>  Prev </a>";
+    if ($page >= 2) {
+        echo "<a class='btn btn-outline-primary' href='welcome.php?page=" . ($page - 1) . "'>  Prev </a>";
     }
-
     echo $pagLink;
-    if($page<$total_pages){
-        echo "<a class='btn btn-outline-primary' href='welcome.php?page=".($page+1)."'>  Next </a>";
+    if ($page < $total_pages) {
+        echo "<a class='btn btn-outline-primary' href='welcome.php?page=" . ($page + 1) . "'>  Next </a>";
     }
     ?>
-        <input id="page" type="number" min="1" max="<?php echo $total_pages?>"
-        placeholder="<?php echo $page."/".$total_pages; ?>" required>
-        <button onClick="go2Page();"class="btn btn-primary">Go</button>
+    <input id="page" type="number" min="1" max="<?php echo $total_pages ?>" placeholder="<?php echo $page . "/" . $total_pages; ?>" required>
+    <button onClick="go2Page();" class="btn btn-primary">Go</button>
     <script>
-        function go2Page()
-        {
+        function go2Page() {
             var page = document.getElementById("page").value;
-            page = ((page><?php echo $total_pages; ?>)?<?php echo $total_pages; ?>:((page<1)?1:page));
-            window.location.href = 'welcome.php?page='+page;
+            page = ((page > <?php echo $total_pages; ?>) ? <?php echo $total_pages; ?> : ((page < 1) ? 1 : page));
+            window.location.href = 'welcome.php?page=' + page;
         }
     </script>
     <br></br>
     <br></br>
+    <br></br>
     <?php include('footer.html') ?>
 </body>
+
 </html>
