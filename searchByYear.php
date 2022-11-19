@@ -29,7 +29,30 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <body>
 
+<?php
+    $query = $_POST['year'];
+    $min_length = 3;
+    if (strlen($query) >= $min_length) { // if query length is more or equal minimum length then
 
+        $query = htmlspecialchars($query);
+        $q = "SELECT * FROM vehicle WHERE (year= '$query') ;";
+        $raw_results = mysqli_query($link, $q);
+        // * means that it selects all fields, you can also write: `id`, `title`, `text`
+        // articles is the name of our table
+
+        // '%$query%' is what we're looking for, % means anything, for example if $query is Hello
+        // it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
+        // or if you want to match just full word so "gogohello" is out use '% $query %' ...OR ... '$query %' ... OR ... '% $query'
+
+        if (mysqli_num_rows($raw_results) > 0) { // if one or more rows are returned do following
+
+        } else { // if there is no matching rows do following
+            echo "No results";
+        }
+    } else { // if query length is less than minimum
+        echo "Minimum length is " . $min_length;
+    }
+    ?>
     <?php include('header.html') ?>
     <br></br>
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to CARHUGE</h1>
@@ -42,7 +65,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </form>
     </br>
-    
     <?php while ($row = mysqli_fetch_array($raw_results)) { ?>
         <div class="album py-5 bg-light">
             <div class="container">
