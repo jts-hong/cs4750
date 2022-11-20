@@ -18,11 +18,26 @@ function addLike($car_id, $user_id)
 
 }
 
-function getAllLikedCars()
+function removeLike($car_id, $user_id){
+  global $link;
+  $sql = "DELETE FROM `likecar` WHERE `likecar`.`user_id` = ? AND `likecar`.`car_id` = ?";
+  $stmt = mysqli_prepare($link, $sql);
+  mysqli_stmt_bind_param($stmt, "ii", $user_id, $car_id);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+}
+
+function getAllLikedCars($user_id)
 {
     global $link;
-    $result = mysqli_query($link, "SELECT * FROM vehicle");
-    return $result;
+    $sql = "SELECT car_id FROM likecar WHERE user_id = ?";
+    $stmt = mysqli_prepare($link, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $rowResult = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_stmt_close($stmt);
+    return $rowResult;
 }
 
 
