@@ -309,6 +309,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <div class="d-flex gap-2 w-100 justify-content-between">
                         <div>
                             <?php echo $row4['phone']; ?>
+                            <a href='delete.php?id=".$book['Staff_ID']."'></a>
                         </div>
                     </div>
                 </a>
