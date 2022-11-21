@@ -234,6 +234,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     $rs_result6 = mysqli_query($link, $query6);
     $row6 = mysqli_fetch_array($rs_result6);
 
+    $queryFinance = "SELECT * FROM finance_transaction WHERE user_id = '$user_id'";
+    $rs_finance = mysqli_query($link, $queryFinance);
+    $financeInfo = mysqli_fetch_array($rs_finance);
+    
     ?>
 
     <br></br>
@@ -321,6 +325,42 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         <?php echo $row6['car_id'];?>
                     </div>
                 </a>
+            <?php }; ?>
+        </div>
+        </br>
+        </br>
+        <div class="list-group w-auto">
+            <h2>
+                Finance Info
+            </h2>
+
+            <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                        <div>
+                            Amount: <?php echo $financeInfo['amount']; ?>
+                            <br></br>
+                            Finance Length: <?php echo $financeInfo['finance_length']; ?> days
+                            <br></br>
+                            Interest Rate: <?php echo $financeInfo['interest_rate'];?>%
+                            <br></br>
+                            Start Date: <?php echo $financeInfo['start_date']; ?> 
+                        </div>
+                    </div>
+                </a >
+            <?php while ($financeInfo = mysqli_fetch_array($rs_finance)) { ?>
+                <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                        <div>
+                            Amount: <?php echo $financeInfo['amount']; ?>
+                            <br></br>
+                            Finance Length: <?php echo $financeInfo['finance_length']; ?> days
+                            <br></br>
+                            Interest Rate: <?php echo $financeInfo['interest_rate'];?>%
+                            <br></br>
+                            Start Date: <?php echo $financeInfo['start_date']; ?> 
+                        </div>
+                    </div>
+                </a >
             <?php }; ?>
         </div>
     </div>

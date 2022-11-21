@@ -8,8 +8,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 
+
 // Include config file
 require_once "config.php";
+require_once "car_db.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -62,7 +64,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["user_id"] = $id;
                             $_SESSION["username"] = $username;
-
+                            $_SESSION["is_seller"]=false;
+                            
                             // Redirect user to welcome page
                             header("location: welcome.php");
                         } else{
@@ -86,6 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($link);
 }
+
 ?>
 
 <!DOCTYPE html>

@@ -39,6 +39,18 @@ function getAllLikedCars($user_id)
   mysqli_stmt_close($stmt);
   return $rowResult;
 }
+
+function getAllSeller()
+{
+  global $link;
+  $sql = "SELECT * FROM seller";
+  $stmt = mysqli_prepare($link, $sql);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+  $rowResult = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  mysqli_stmt_close($stmt);
+  return $rowResult;
+}
 function getAllSellers()
 {
   global $link;
@@ -73,3 +85,4 @@ function insertNewFinance($user_id, $amount, $finance_length, $interest_rate, $s
   mysqli_stmt_close($stmt);
   return $error_msg;
 }
+

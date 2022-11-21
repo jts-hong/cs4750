@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         addLike($_POST["car_id"], $_SESSION["user_id"]);
         die();
     } elseif (isset($_POST['car_id']) && $_POST['to_like'] == 0) {
-        removeLIke($_POST["car_id"], $_SESSION["user_id"]);
+        removeLike($_POST["car_id"], $_SESSION["user_id"]);
         die();
     }
 }
