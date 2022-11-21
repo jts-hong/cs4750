@@ -230,148 +230,106 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     $rs_result5 = mysqli_query($link, $query5);
     $row5 = mysqli_fetch_array($rs_result5);
 
+    $query6 = "SELECT car_id FROM likeCar WHERE user_id = '$user_id'";
+    $rs_result6 = mysqli_query($link, $query6);
+    $row6 = mysqli_fetch_array($rs_result6);
+
     ?>
 
     <br></br>
     <div class="wrapper" style="width:600px;margin:0 auto;">
         <?php include('header.html') ?>
-        <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. This is your Account Page</h2>
+        <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Please add a car</h2>
         <div><?php if (isset($message)) {
                     echo $message;
-                    echo $user_id;
-                    echo $first_name;
                 } ?></div>
-        <div class="list-group w-auto">
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">First Name</h6>
-                        <?php echo $row1['first_name']; ?>
 
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Last Name</h6>
-                        <?php echo $row1['last_name']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Address</h6>
-                        <?php echo $row1['address']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Email</h6>
-                        <?php echo $row2['email']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Gender</h6>
-                        <?php echo $row3['gender']; ?>
-                    </div>
-                </div>
-            </a>
-            <?php while ($row4 = mysqli_fetch_array($rs_result4)) { ?>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                        <div>
-                            <h6 class="mb-0">Phone</h6>
-                            <?php echo $row4['phone']; ?>
-                        </div>
-                    </div>
-                </a>
-            <?php }; ?>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Desire Type</h6>
-                        <?php echo $row5['desire_type']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Budget</h6>
-                        <?php echo $row5['budget']; ?>
-                    </div>
-                </div>
-            </a>
-        </div>
         <br></br>
         <form method="POST">
             <div class="form-group">
                 <label>First Name</label>
-                <input type="text" name="first_name" class="form-control ">
+                <input type="text" name="first_name" class="form-control " value=<?php echo $row1['first_name']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
 
             <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" name="last_name" class="form-control ">
+                <input type="text" name="last_name" class="form-control " value=<?php echo $row1['last_name']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
 
             <div class="form-group">
                 <label>Address</label>
-                <input type="text" name="address" class="form-control ">
+                <input type="text" name="address" class="form-control " value=<?php echo $row1['address']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" name="email" class="form-control ">
+                <input type="text" name="email" class="form-control " value=<?php echo $row2['email']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
                 <label>Gender</label>
-                <input type="text" name="gender" class="form-control ">
+                <input type="text" name="gender" class="form-control " value=<?php echo $row3['gender']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
-                <label>Phone</label>
+                <label>Add New Phone</label>
                 <input type="text" name="phone" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
                 <label>Desire Type</label>
-                <input type="text" name="desire_type" class="form-control ">
+                <input type="text" name="desire_type" class="form-control " value=<?php echo $row5['desire_type']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
                 <label>Budget</label>
-                <input type="text" name="budget" class="form-control ">
+                <input type="text" name="budget" class="form-control " value=<?php echo $row5['budget']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Update">
             </div>
         </form>
-
+        <br></br>
+        <br></br>
+        <div class="list-group w-auto">
+            <h2>
+                Phone List
+            </h2>
+            <br></br>
+            <?php while ($row4 = mysqli_fetch_array($rs_result4)) { ?>
+                <a href="" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                        <div>
+                            <?php echo $row4['phone']; ?>
+                        </div>
+                    </div>
+                </a>
+            <?php }; ?>
+        </div>
+        <br></br>
+        <div class="list-group w-auto">
+            <h2>
+                Liked Cars
+            </h2>
+            <?php while ($row6 = mysqli_fetch_array($rs_result6)) { ?>
+                <a href="view.php?car_id=<?php echo $row6['car_id'];?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                        <?php echo $row6['car_id'];?>
+                    </div>
+                </a>
+            <?php }; ?>
+        </div>
     </div>
 
 
     <br></br>
     <br></br>
     <br></br>
-
+    <?php include('footer.html') ?>
 
 </body>
 

@@ -40,7 +40,17 @@ function getAllLikedCars($user_id)
     return $rowResult;
 }
 
-function insertNewFinance($user_id,$amount, $finance_length, $interest_rate, $start_date)
+function insertNewFinance($user_id,$amount, $finance_length, $interest_rate, $start_date)function getCarDetails($car_id){
+  global $link;
+  $stmt = $link->prepare("SELECT * FROM vehicle WHERE car_id = ?");
+  $stmt->bind_param("s", $car_id);
+  $stmt->execute();
+  $arr = $stmt->get_result()->fetch_assoc();
+  if(!$arr) exit('No rows');
+  $stmt->close();
+  return $arr;
+}
+
 {
     global $link;
     $sql = "INSERT INTO finance_transaction(user_id, amount, finance_length, interest_rate, start_date) VALUES (?, ?, ?, ?, ?)";
