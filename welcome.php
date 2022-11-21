@@ -4,6 +4,7 @@ session_start();
 require("car-db.php");
 require("config.php");
 $list_of_cars = getAllCars();
+$list_of_sellers = getAllSellers();
 // get list of liked cars to make sure buttons are in correct color 
 $list_of_liked_Cars = getAllLikedCars($_SESSION["user_id"]);
 // Check if the user is logged in, if not then redirect him to login page
@@ -48,7 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include('header.html') ?>
     <br></br>
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["user_id"]); ?></b>. Welcome to CARHUGE</h1>
-    <a href="addcar.php" class="btn btn-danger ml-3"> Add Car</a>
+    <?php
+    foreach ($list_of_sellers as $x) :
+        if ($x['user_id'] == $_SESSION["user_id"]) {
+            $is_seller = true;
+        }
+    endforeach;
+    if ($is_seller){
+        ?><a href="addcar.php" class="btn btn-danger ml-3"> Add Car</a><?php
+    }
+    ?>
+    
     <br></br>
     <br></br>
     <?php
@@ -134,11 +145,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                           <input type="hidden" name="car_to_like" value="<?php echo $row['car_id']; ?>"/>
                                           
                                     </div>
-                                    <?php foreach ($list_of_liked_Cars as $curCar):
-                                            if ($curCar['car_id'] == $row['car_id']){
-                                                echo "liked this car";
-                                            }
-                                        endforeach; ?>
                                 </div>
                             </form>
 
