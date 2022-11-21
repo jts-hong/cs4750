@@ -40,6 +40,15 @@ function getAllLikedCars($user_id)
     return $rowResult;
 }
 
-
-
+function insertNewFinance($user_id,$amount, $finance_length, $interest_rate, $start_date)
+{
+    global $link;
+    $sql = "INSERT INTO finance_transaction(user_id, amount, finance_length, interest_rate, start_date) VALUES (?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($link, $sql);
+    mysqli_stmt_bind_param($stmt, "iiids", $user_id, $amount, $finance_length, $interest_rate, $start_date);
+    mysqli_stmt_execute($stmt);
+    $error_msg =  $stmt -> error;
+    mysqli_stmt_close($stmt);
+    return $error_msg;
+}
 ?>

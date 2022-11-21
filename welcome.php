@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         body {
             font: 14px sans-serif;
             text-align: center;
+        }
     </style>
 </head>
 
