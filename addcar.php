@@ -235,129 +235,65 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <br></br>
     <div class="wrapper" style="width:600px;margin:0 auto;">
         <?php include('header.html') ?>
-        <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Please add a car</h2>
+        <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>.  Please add your car</h2>
         <div><?php if (isset($message)) {
                     echo $message;
                     echo $user_id;
                     echo $first_name;
                 } ?></div>
-        <div class="list-group w-auto">
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">First Name</h6>
-                        <?php echo $row1['first_name']; ?>
-
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Last Name</h6>
-                        <?php echo $row1['last_name']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Address</h6>
-                        <?php echo $row1['address']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Email</h6>
-                        <?php echo $row2['email']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Gender</h6>
-                        <?php echo $row3['gender']; ?>
-                    </div>
-                </div>
-            </a>
-            <?php while ($row4 = mysqli_fetch_array($rs_result4)) { ?>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                        <div>
-                            <h6 class="mb-0">Phone</h6>
-                            <?php echo $row4['phone']; ?>
-                        </div>
-                    </div>
-                </a>
-            <?php }; ?>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Desire Type</h6>
-                        <?php echo $row5['desire_type']; ?>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h6 class="mb-0">Budget</h6>
-                        <?php echo $row5['budget']; ?>
-                    </div>
-                </div>
-            </a>
-        </div>
         <br></br>
         <form method="POST">
             <div class="form-group">
-                <label>First Name</label>
-                <input type="text" name="first_name" class="form-control ">
+                <label>Make</label>
+                <input type="text" name="make" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
 
             <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" name="last_name" class="form-control ">
+                <label>Year</label>
+                <input type="text" name="year" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
 
             <div class="form-group">
-                <label>Address</label>
-                <input type="text" name="address" class="form-control ">
+                <label>Model</label>
+                <input type="text" name="model" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
 
             <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control ">
+                <label>Selling Price</label>
+                <input type="text" name="selling_price" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
-                <label>Gender</label>
-                <input type="text" name="gender" class="form-control ">
+                <label>Mileage</label>
+                <input type="text" name="mileage" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
-                <label>Phone</label>
-                <input type="text" name="phone" class="form-control ">
+                <label>Availablity</label>
+                <input type="text" name="availablity" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
-                <label>Desire Type</label>
-                <input type="text" name="desire_type" class="form-control ">
+                <label>Fuel Type</label>
+                <input type="text" name="fuel_type" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
-                <label>Budget</label>
-                <input type="text" name="budget" class="form-control ">
+                <label>Transmission</label>
+                <input type="text" name="transmission" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <label>MPG</label>
+                <input type="text" name="mpg" class="form-control ">
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" name="description" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">

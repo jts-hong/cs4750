@@ -51,6 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <?php include('header.html') ?>
     <br></br>
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["user_id"]); ?></b>. Welcome to CARHUGE</h1>
+    <li>
+        <a href="addcar.php" class="btn btn-danger ml-3"> Add Car</a>
+    </li>
     <?php
     $per_page_record = 10;  // Number of entries to show in a page.   
     if (isset($_GET["page"])) {
