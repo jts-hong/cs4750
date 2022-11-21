@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         body {
             font: 14px sans-serif;
             text-align: center;
+        }
     </style>
 </head>
 
@@ -124,6 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                         
                                           <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
                                           <!-- <button type="submit" value = "liked" name="btnAction" class="btn btn-sm btn-outline-secondary">Like</button> -->
+                                          <a href="view.php?car_id=<?php echo $row['car_id'];?>"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
                                           <input type="hidden" name="car_to_like" value="<?php echo $row['car_id']; ?>"/>
                                           <?php foreach ($list_of_liked_Cars as $curCar):
                                             if ($curCar['car_id'] == $row['car_id']){
