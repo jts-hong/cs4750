@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         addLike($_POST["car_id"], $_SESSION["user_id"]);
         die();
     } elseif (isset($_POST['car_id']) && $_POST['to_like'] == 0) {
-        removeLIke($_POST["car_id"], $_SESSION["user_id"]);
+        removeLike($_POST["car_id"], $_SESSION["user_id"]);
         die();
     }
 }
@@ -140,11 +140,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <input type="hidden" name="car_to_like" value="<?php echo $row['car_id']; ?>" />
 
                                             </div>
-                                            <?php foreach ($list_of_liked_Cars as $curCar) :
-                                                if ($curCar['car_id'] == $row['car_id']) {
-                                                    echo "liked this car";
-                                                }
-                                            endforeach; ?>
                                         </div>
                                     </div>
                                 </div>

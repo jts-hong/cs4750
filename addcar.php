@@ -117,7 +117,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     $rs_result2 = mysqli_query($link, $query2);
     $row2 = mysqli_fetch_array($rs_result2);
 
-    ?>
+    
 
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -134,9 +134,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         $description = $_POST['description'];
 
 
-        if ($stmt = mysqli_prepare($link, "INSERT INTO vehicle VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")) {
-            echo $stmt;
-            mysqli_stmt_bind_param($stmt, "ssssssssss", $make, $year, $model, $selling_price, $mileage, $availablity, $fuel_type, $transmission, $mpg, $description,$user_id);
+        if ($stmt = mysqli_prepare($link, "INSERT INTO vehicle(make,year,model,selling_price,mileage,availability,fuel_type,transmission,mpg,description,user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);")) {
+            mysqli_stmt_bind_param($stmt, "sssssssssss", $make, $year, $model, $selling_price, $mileage, $availablity, $fuel_type, $transmission, $mpg, $description,$user_id);
 
             // Set parameters
             $param_make = $make;
@@ -166,13 +165,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         $message = "Record Modified Successfully";
     }
 
-
+    ?>
 
     <br></br>
     <div class="wrapper" style="width:600px;margin:0 auto;">
-        
+        <?php include('header.html') ?>
         <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>.  Please add your car</h2>
-        <br></br>
+        
         <form method="POST">
             <div class="form-group">
                 <label>Make</label>
@@ -238,7 +237,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <br></br>
     <br></br>
     <br></br>
-
+    <?php include('footer.html') ?>
 
 </body>
 

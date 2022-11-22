@@ -141,11 +141,7 @@ $raw_results = Null;
                                                 <input type="hidden" name="car_to_like" value="<?php echo $row['car_id']; ?>" />
 
                                             </div>
-                                            <?php foreach ($list_of_liked_Cars as $curCar) :
-                                                if ($curCar['car_id'] == $row['car_id']) {
-                                                    echo "liked this car";
-                                                }
-                                            endforeach; ?>
+
                                         </div>
                                     </div>
                                 </div>
