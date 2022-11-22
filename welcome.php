@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die();
     }
 }
-$list_of_sellers = getAllSeller();
+$list_of_sellers = getAllSellers();
 
 $_SESSION["is_seller"] = false;
 

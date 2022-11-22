@@ -40,6 +40,18 @@ function getAllLikedCars($user_id)
   return $rowResult;
 }
 
+function getAllSellers()
+{
+  global $link;
+  $sql = "SELECT * FROM seller";
+  $stmt = mysqli_prepare($link, $sql);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+  $rowResult = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  mysqli_stmt_close($stmt);
+  return $rowResult;
+}
+
 function getCarDetails($car_id){
   global $link;
   $stmt = $link->prepare("SELECT * FROM vehicle WHERE car_id = ?");
@@ -50,12 +62,8 @@ function getCarDetails($car_id){
   $stmt->close();
   return $arr;
 }
-<<<<<<< HEAD
 
 function insertNewFinance($user_id,$amount, $finance_length, $interest_rate, $start_date)
-=======
-function insertNewFinance($user_id, $amount, $finance_length, $interest_rate, $start_date)
->>>>>>> 14a64475b61a5d045325941cb299b518a7515628
 {
   global $link;
   $sql = "INSERT INTO finance_transaction(user_id, amount, finance_length, interest_rate, start_date) VALUES (?, ?, ?, ?, ?)";
