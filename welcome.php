@@ -115,34 +115,38 @@ endforeach;
                             ?>
 
                             <!-- like button on each car post -->
-                            <button id=<?php echo $row['car_id']; ?> class=<?php echo $like_btn_class; ?> style="background-color:
-                            <?php echo $like_btn_color; ?>;">Like
-                            </button>
+                            <?php 
+                                $like_btn_color = "#FFFFFF";
+                                $like_btn_class = "";
+                                foreach ($list_of_liked_Cars as $curCar):
+                                            if ($curCar['car_id'] == $row['car_id']){
+                                                $like_btn_color = "red";
+                                                $like_btn_class = "liked";
+                                            }
+                                        endforeach;
+                                ?>
 
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+                                <!-- like button on each car post -->
+                                <button id=<?php echo $row['car_id']; ?> class = <?php echo $like_btn_class; ?> style = "background-color:<?php echo $like_btn_color; ?>;">Like</button>
 
-                            <script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+                                <script> 
                                 // get the button using id which is the car_id
-                                $("#<?php echo $row['car_id']; ?>").click(function(e) {
-                                    if ($(this).hasClass("liked")) {
-                                        $(this).removeClass("liked");
-                                        document.getElementById(<?php echo $row[' car_id ']; ?>).style.background = "#FFFFFF";
-                                        $.post("welcome.php", {
-                                            "to_like": 0,
-                                            "car_id": <?php echo $row[' car_id ']; ?>
-                                        });
+                                $("#<?php echo $row['car_id']; ?>").click(function(e){
+                                    if($(this).hasClass("liked")){                 
+                                        $(this).removeClass("liked");                                                                                
+                                        document.getElementById(<?php echo $row['car_id']; ?>).style.background = "#FFFFFF";
+                                        $.post("welcome.php",{"to_like": 0 ,"car_id":<?php echo $row['car_id']; ?>});
                                     } else {
                                         $(this).addClass("liked");
-                                        // change appearance of button
-                                        document.getElementById(<?php echo $row[' car_id ']; ?>).style.background = "red";
-                                        // send post to php to modify database
-                                        $.post("welcome.php", {
-                                            "to_like": 1,
-                                            "car_id": <?php echo $row[' car_id ']; ?>
-                                        });
+                                        // change appearance of button 
+                                        document.getElementById(<?php echo $row['car_id']; ?>).style.background = "red";
+                                        // send post to php to modify database    
+                                        $.post("welcome.php",{"to_like": 1, "car_id":<?php echo $row['car_id']; ?>});
                                     }
                                 });
-                            </script>
+                                </script>
                             <form action="welcome.php" method="post">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -150,12 +154,10 @@ endforeach;
 
                                         <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
                                         <!-- <button type="submit" value = "liked" name="btnAction" class="btn btn-sm btn-outline-secondary">Like</button> -->
-                                        <input type="hidden" name="car_to_like" value="<?php echo $row['car_id']; ?>" />
-                                        <?php foreach ($list_of_liked_Cars as $curCar) :
-                                            if ($curCar['car_id'] == $row['car_id']) {
-                                                echo "liked this car";
-                                            }
-                                        endforeach; ?>
+                                        <a href="view.php?car_id=<?php echo $row['car_id'];?>"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                                        <input type="hidden" name="car_to_like" value="<?php echo $row['car_id']; ?>"/>
+
+
                                     </div>
                                     <!-- <small class="text-muted">9 mins</small> -->
                                 </div>
