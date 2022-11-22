@@ -9,35 +9,40 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 $amount_error = "";
-$length=$start_date=$amount="";
+$length = $start_date = $amount = "";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  if (!empty($_POST['btnAction']) && $_POST['btnAction'] == 'Submit')
-  {
-    
-    $amount_error = insertNewFinance($_SESSION["user_id"], $_POST["amount"], $_POST["finance_length"], $_POST["interest_rate_form"], $_POST["start_date"]);
-    echo $amount_error; 
-    
-    $length = $_POST["finance_length"];
-    $start_date = $_POST["start_date"];
-    $amount = $_POST["amount"];
-    if ($amount_error == ""){
-        header("location: account.php");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!empty($_POST['btnAction']) && $_POST['btnAction'] == 'Submit') {
+
+        $amount_error = insertNewFinance($_SESSION["user_id"], $_POST["amount"], $_POST["finance_length"], $_POST["interest_rate_form"], $_POST["start_date"]);
+        echo $amount_error;
+
+        $length = $_POST["finance_length"];
+        $start_date = $_POST["start_date"];
+        $amount = $_POST["amount"];
+        if ($amount_error == "") {
+            header("location: account.php");
+        }
     }
-  }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
+        body {
+            font: 14px sans-serif;
+        }
+
+        .wrapper {
+            width: 360px;
+            padding: 20px;
+        }
 
         .switch {
             position: relative;
@@ -91,82 +96,85 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             -ms-transform: translateX(26px);
             transform: translateX(26px);
         }
-
-
     </style>
 </head>
-<body>
-    <div class="wrapper">
-        <h2>Finance Application</h2>
-        <p>Please fill this form to apply for a loan</p>
-        <ul>
-            <p>User Notice</p>
-            <li> This application will potentially grant a loan to <?php echo $_SESSION["username"]; ?>'s account and could be used in any purchase on this website</li>
 
-        </ul>
+<body>
+
+
+    <div class="wrapper" style="width:600px;margin:0 auto;">
+        <?php include('header.html') ?>
+        <br/><br/><br/><br/>
+        <h1>Finance Application</h1>
+        <p>Please fill this form to apply for a loan</p>
+        <p>This application will potentially grant a loan to <?php echo $_SESSION["username"]; ?>'s account and could be used in any purchase on this website</p>
+
+   
         This application will potentially grant a loan to this user account and could be used in any purchase in this website
-            
+
         </p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>Amount</label>
-                <input type="hidden" name="interest_rate_form" id = "hidden_interest"/>
-                <input oninput="amountFunc()" id = "amountButton" type="number" name="amount" class="form-control <?php echo (!empty($amount_error)) ? 'is-invalid' : ''; ?>" value= <?php echo $amount; ?>>
+                <input type="hidden" name="interest_rate_form" id="hidden_interest" />
+                <input oninput="amountFunc()" id="amountButton" type="number" name="amount" class="form-control <?php echo (!empty($amount_error)) ? 'is-invalid' : ''; ?>" value=<?php echo $amount; ?>>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
                 <script>
-                // $("#amountButton"){
+                    // $("#amountButton"){
 
-                // }
-                // document.getElementsById("   interest_rate")[0].innerHTML = 222;
-                function amountFunc(){
-                    // alert("11111aaaaa");
-                    // document.getElementById('interest_rate').innerHTML = document.getElementById('amountButton').value;
-                    if(document.getElementById('amountButton').value <= 5000){
-                        // alert("aaa");
-                        document.getElementById('interest_rate').innerHTML = 3.5;
-                        document.getElementById('hidden_interest').value = 3.5;
-                    }else if(document.getElementById('amountButton').value <= 10000){
-                        document.getElementById('interest_rate').innerHTML = 6.3;
-                        document.getElementById('hidden_interest').value = 6.3;
-                    }else if(document.getElementById('amountButton').value <= 30000){
-                        document.getElementById('interest_rate').innerHTML = 8.3;
-                        document.getElementById('hidden_interest').value = 8.3;
-                    }else{
-                        document.getElementById('interest_rate').innerHTML = 9.5;
-                        document.getElementById('hidden_interest').value = 9.5;
+                    // }
+                    // document.getElementsById("   interest_rate")[0].innerHTML = 222;
+                    function amountFunc() {
+                        // alert("11111aaaaa");
+                        // document.getElementById('interest_rate').innerHTML = document.getElementById('amountButton').value;
+                        if (document.getElementById('amountButton').value <= 5000) {
+                            // alert("aaa");
+                            document.getElementById('interest_rate').innerHTML = 3.5;
+                            document.getElementById('hidden_interest').value = 3.5;
+                        } else if (document.getElementById('amountButton').value <= 10000) {
+                            document.getElementById('interest_rate').innerHTML = 6.3;
+                            document.getElementById('hidden_interest').value = 6.3;
+                        } else if (document.getElementById('amountButton').value <= 30000) {
+                            document.getElementById('interest_rate').innerHTML = 8.3;
+                            document.getElementById('hidden_interest').value = 8.3;
+                        } else {
+                            document.getElementById('interest_rate').innerHTML = 9.5;
+                            document.getElementById('hidden_interest').value = 9.5;
+                        }
+
                     }
-                    
-                }
                 </script>
                 <span class="invalid-feedback">Finance amount must be >= 2000</span>
-            </div> 
-            
+            </div>
+
             <div class="form-group">
                 <label>Finance Length in Days</label>
-                <input required type="number" min = "30" name="finance_length" class="form-control <?php echo (!empty($length_err)) ? 'is-invalid' : ''; ?>" value = <?php echo $length; ?> >
+                <input required type="number" min="30" name="finance_length" class="form-control <?php echo (!empty($length_err)) ? 'is-invalid' : ''; ?>" value=<?php echo $length; ?>>
                 <span class="invalid-feedback"><?php echo $length_err; ?></span>
-            </div>    
+            </div>
             <div class="form-group">
                 <label>Start Date</label>
-                <input required type="date" name="start_date" class="form-control <?php echo (!empty($start_date_err)) ? 'is-invalid' : ''; ?>" value = <?php echo $start_date; ?> >
+                <input required type="date" name="start_date" class="form-control <?php echo (!empty($start_date_err)) ? 'is-invalid' : ''; ?>" value=<?php echo $start_date; ?>>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
                 <script>
                     var today = new Date().toISOString().split('T')[0];
                     document.getElementsByName("start_date")[0].setAttribute('min', today);
                 </script>
                 <span class="invalid-feedback"><?php echo $start_date_err; ?></span>
-       
-           
-            <p>Interest Rate (%):</p>
-            <p id = "interest_rate"> 0 </p>
 
-            
-            <div class="form-group">
-                <input name="btnAction" type="submit" class="btn btn-primary" value="Submit">
-               
-            </div>
+                <br/>
+                <p>Interest Rate (%):</p>
+                <p id="interest_rate"> 0 </p>
 
+
+                <div class="form-group">
+                    <input name="btnAction" type="submit" class="btn btn-primary" value="Submit">
+
+                </div>
         </form>
-    </div>    
+        <?php include('footer.html') ?>
+    </div>
+
 </body>
+
 </html>

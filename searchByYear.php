@@ -40,6 +40,12 @@ $raw_results = Null;
             font: 14px sans-serif;
             text-align: center;
         }
+
+        text {
+            font: 40px sans-serif;
+            text-align: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -83,15 +89,23 @@ $raw_results = Null;
 
                                 <div class="card shadow-sm">
                                     <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                    </svg>
-                                    <div class="card-body">
-                                        <h2 class="card-text">
+                                        <rect width="100%" height="100%" fill="#444444" />
+                                        <text x="22%" y="50%" fill="#eceeef" dy=".100em" font-size="200p">
                                             <?php echo $row['make']; ?>
                                             <?php echo $row['year']; ?>
                                             <?php echo $row['model']; ?>
-                                        </h2>
+
+                                        </text>
+                                    </svg>
+                                    <div class="card-body">
+                                        <p class="body">
+                                            <?php echo "Price: ";
+                                            echo $row['selling_price']; ?>
+                                            <?php echo "Mileage: ";
+                                            echo $row['mileage']; ?>
+                                            <?php echo "Description: ";
+                                            echo $row['description']; ?>
+                                        </p>
 
                                         <?php
                                         $like_btn_color = "#FFFFFF";

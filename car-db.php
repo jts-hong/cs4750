@@ -30,7 +30,7 @@ function removeLike($car_id, $user_id){
 function getAllLikedCars($user_id)
 {
   global $link;
-  $sql = "SELECT car_id FROM likecar WHERE user_id = ?";
+  $sql = "SELECT car_id FROM likeCar WHERE user_id = ?";
   $stmt = mysqli_prepare($link, $sql);
   mysqli_stmt_bind_param($stmt, "i", $user_id);
   mysqli_stmt_execute($stmt);
