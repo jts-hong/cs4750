@@ -110,4 +110,14 @@ function getUserPhone($user_id){
   mysqli_stmt_close($stmt);
   return $rowResult;
 }
+
+function addGender($user_id, $gender){
+  global $link;
+  $sql = "INSERT INTO user_gender  VALUES (?,?)";
+  $stmt = mysqli_prepare($link, $sql);
+  mysqli_stmt_bind_param($stmt, "is", $user_id, $gender);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+}
 ?>
+

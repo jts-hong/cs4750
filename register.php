@@ -1,7 +1,7 @@
 <?php
 // Include config file
 require_once "config.php";
-
+require("car-db.php");
 // Define variables and initialize with empty values
 $username = $password = $firstname = $lastname = $address = $confirm_password = $phone = $gender = $email = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -173,7 +173,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt = mysqli_prepare($link, $sql)) {
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "ss", $user_id, $gender);
+        $gender_radio = $_POST["gender_radio"];
+        foreach ($gender_radio as $genderl) :
+            echo $genderl;
+            addGender($user_id, $genderl);
+        endforeach;
+
 
         // Set parameters
         $param_user_id = $user_id;
@@ -182,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Attempt to execute the prepared statement
         if (mysqli_stmt_execute($stmt)) {
             // Redirect to login page
-            header("location: login.php");
+            header("location: register.php");
         } else {
             echo $stmt->error;
             echo "Oops! Something went wrong. Please try again later.";
@@ -216,6 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_stmt_execute($stmt)) {
             // Redirect to login page
             header("location: login.php");
+
         } else {
             echo $stmt->error;
             echo "Oops! Something went wrong. Please try again later.";
@@ -247,7 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
-                #header("location: login.php");
+                header("location: login.php");
             } else {
                 echo $stmt->error;
                 echo "Oops! Something went wrong. Please try again later.";
@@ -385,10 +391,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="invalid-feedback"></span>
                 </div>
                 <div class="form-group">
-                    <label>Gender</label>
-                    <input type="text" name="gender" class="form-control " required>
-                    <span class="invalid-feedback"></span>
+                <input type="checkbox" id="male" name="gender_radio[]" value="Male">
+                <label for="male">Male</label><br>
+                <input type="checkbox" id="female" name="gender_radio[]" value="Female">
+                <label for="female">Female</label><br>
+                <input type="checkbox" id="transmale" name="gender_radio[]" value="TransMale">
+                <label for="transmale">TransMale</label><br>
+                <input type="checkbox" id="transfemale" name="gender_radio[]" value="TransFemale">
+                <label for="transfemale">TransFemale</label><br>
+                <input type="checkbox" id="genderqueer" name="gender_radio[]" value="Genderqueer">
+                <label for="genderqueer">Genderqueer</label><br>
+                <input type="checkbox" id="somethingelse" name="gender_radio[]" value="SomethingElse">
+                <label for="somethingelse">Something Else</label><br>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+                <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#checkBtn').click(function() {
+                    checked = $('[name="gender_radio[]"]:checked').length
+
+                    if(!checked) {
+                        alert("You must check at least one checkbox.");
+                        return false;
+                    }
+
+                    });
+                });
+
+                </script>
+  
                 </div>
+                
                 <div class="form-group">
                     <label>Desire Type</label>
                     <input type="text" name="desire_type" class="form-control ">
@@ -401,12 +434,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <h6> Do you want to become a Seller?</h6>
                 <label class="switch">
-                    <input type="checkbox" required>
+                    <input type="checkbox">
                     <span class="slider round"></span>
                 </label>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <input type="submit" class="btn btn-primary" value="Submit" id="checkBtn">
                     <input type="reset" class="btn btn-secondary ml-2" value="Reset">
                 </div>
                 <p>Already have an account? <a href="login.php">Login here</a>.</p>
