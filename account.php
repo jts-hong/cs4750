@@ -237,16 +237,20 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     $queryFinance = "SELECT * FROM finance_transaction WHERE user_id = '$user_id'";
     $rs_finance = mysqli_query($link, $queryFinance);
     $financeInfo = mysqli_fetch_array($rs_finance);
-    
+
     ?>
 
     <br></br>
     <div class="wrapper" style="width:600px;margin:0 auto;">
         <?php include('header.html') ?>
-        <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Please add a car</h2>
-        <div><?php if (isset($message)) {
-                    echo $message;
-                } ?></div>
+        <h2 class="my-5">Hi, <b>
+                <?php echo htmlspecialchars($_SESSION["username"]); ?>
+            </b>. Please add a car</h2>
+        <div>
+            <?php if (isset($message)) {
+                echo $message;
+            } ?>
+        </div>
 
         <br></br>
         <form method="POST">
@@ -275,7 +279,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </div>
             <div class="form-group">
                 <label>Add Gender</label>
-                <input type="text" name="gender" class="form-control " >
+                <input type="text" name="gender" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
@@ -283,6 +287,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 <input type="text" name="phone" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
+            <?php if (is_null($row5)) { ?>
+            <div class="form-group">
+                <label>Desire Type</label>
+                <input type="text" name="desire_type" class="form-control " value=<?php echo "None"; ?>>
+                <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <label>Budget</label>
+                <input type="text" name="budget" class="form-control " value=<?php echo "None"; ?>>
+                <span class="invalid-feedback"></span>
+            </div>
+            <?php } else { ?>
             <div class="form-group">
                 <label>Desire Type</label>
                 <input type="text" name="desire_type" class="form-control " value=<?php echo $row5['desire_type']; ?>>
@@ -293,6 +309,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 <input type="text" name="budget" class="form-control " value=<?php echo $row5['budget']; ?>>
                 <span class="invalid-feedback"></span>
             </div>
+            <?php } ?>
+
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Update">
             </div>
@@ -305,17 +323,19 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </h2>
             <br></br>
             <?php while ($row4 = mysqli_fetch_array($rs_result4)) { ?>
-                
-                <a href="delete_number.php?number='<?php echo $row4['phone']?>'" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
 
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                        <div>
-                            <?php echo $row4['phone']; ?>
-                            
-                        </div>
+            <a href="delete_number.php?number='<?php echo $row4['phone'] ?>'"
+                class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <?php echo $row4['phone']; ?>
+
                     </div>
-                </a>
-            <?php }; ?>
+                </div>
+            </a>
+            <?php }
+            ; ?>
         </div>
         <br></br>
         <br></br>
@@ -325,17 +345,19 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </h2>
             <br></br>
             <?php while ($row3 = mysqli_fetch_array($rs_result3)) { ?>
-                
-                <a href="delete_number.php?number='<?php echo $row3['gender']?>'" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
 
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                        <div>
-                            <?php echo $row3['gender']; ?>
-                            
-                        </div>
+            <a href="delete_number.php?number='<?php echo $row3['gender'] ?>'"
+                class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <?php echo $row3['gender']; ?>
+
                     </div>
-                </a>
-            <?php }; ?>
+                </div>
+            </a>
+            <?php }
+            ; ?>
         </div>
         <br></br>
         <div class="list-group w-auto">
@@ -343,12 +365,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 Liked Cars
             </h2>
             <?php while ($row6 = mysqli_fetch_array($rs_result6)) { ?>
-                <a href="view.php?car_id=<?php echo $row6['car_id'];?>" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                        <?php echo $row6['car_id'];?>
-                    </div>
-                </a>
-            <?php }; ?>
+            <a href="view.php?car_id=<?php echo $row6['car_id']; ?>"
+                class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <?php echo $row6['car_id']; ?>
+                </div>
+            </a>
+            <?php }
+            ; ?>
         </div>
         </br>
         </br>
@@ -357,34 +381,59 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 Finance Info
             </h2>
 
+            <?php if (is_null($financeInfo)) { ?>
             <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                        <div>
-                            Amount: <?php echo $financeInfo['amount']; ?>
-                            <br></br>
-                            Finance Length: <?php echo $financeInfo['finance_length']; ?> days
-                            <br></br>
-                            Interest Rate: <?php echo $financeInfo['interest_rate'];?>%
-                            <br></br>
-                            Start Date: <?php echo $financeInfo['start_date']; ?> 
-                        </div>
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        <?php echo "None"; ?>
+
                     </div>
-                </a >
+                </div>
+            </a>
+
+            <?php } else { ?>
+            <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        Amount:
+                        <?php echo $financeInfo['amount']; ?>
+                        <br></br>
+                        Finance Length:
+                        <?php echo $financeInfo['finance_length']; ?> days
+                        <br></br>
+                        Interest Rate:
+                        <?php echo $financeInfo['interest_rate']; ?>%
+                        <br></br>
+                        Start Date:
+                        <?php echo $financeInfo['start_date']; ?>
+                    </div>
+                </div>
+            </a>
             <?php while ($financeInfo = mysqli_fetch_array($rs_finance)) { ?>
-                <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                    <div class="d-flex gap-2 w-100 justify-content-between">
-                        <div>
-                            Amount: <?php echo $financeInfo['amount']; ?>
-                            <br></br>
-                            Finance Length: <?php echo $financeInfo['finance_length']; ?> days
-                            <br></br>
-                            Interest Rate: <?php echo $financeInfo['interest_rate'];?>%
-                            <br></br>
-                            Start Date: <?php echo $financeInfo['start_date']; ?> 
-                        </div>
+            <a class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                        Amount:
+                        <?php echo $financeInfo['amount']; ?>
+                        <br></br>
+                        Finance Length:
+                        <?php echo $financeInfo['finance_length']; ?> days
+                        <br></br>
+                        Interest Rate:
+                        <?php echo $financeInfo['interest_rate']; ?>%
+                        <br></br>
+                        Start Date:
+                        <?php echo $financeInfo['start_date']; ?>
                     </div>
-                </a >
-            <?php }; ?>
+                </div>
+            </a>
+            <?php }
+                ; ?>
+            <?php
+            } ?>
+
+
+
         </div>
     </div>
 
