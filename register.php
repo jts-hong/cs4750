@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $username = trim($_POST["username"]);
                 }
             } else {
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Something went wrong. Please try again later1.";
             }
 
             // Close statement
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 header("location: login.php");
             } else {
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Something went wrong. Please try again later2.";
                 echo $stmt->error;
             }
 
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirect to login page
             header("location: login.php");
         } else {
-            echo "Oops! Something went wrong. Please try again later.";
+            echo "Oops! Something went wrong. Please try again later3.";
         }
 
         // Close statement
@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("location: login.php");
         } else {
             echo $stmt->error;
-            echo "Oops! Something went wrong. Please try again later.";
+            echo "Oops! Something went wrong. Please try again later4.";
         }
 
         // Close statement
@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $q = mysqli_query($link, $em);
     $n = mysqli_fetch_array($q);
     $id = intval($n['user_id']);
-    $gender = trim($_POST["gender"]);
+    // $gender = trim($_POST["gender"]);
     $sql = "INSERT INTO user_gender  VALUES (?,?)";
 
     //echo gettype($phone)."\n";
@@ -185,13 +185,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $param_gender = $gender;
 
         // Attempt to execute the prepared statement
-        if (mysqli_stmt_execute($stmt)) {
-            // Redirect to login page
-            header("location: register.php");
-        } else {
-            echo $stmt->error;
-            echo "Oops! Something went wrong. Please try again later.";
-        }
+        // if (mysqli_stmt_execute($stmt)) {
+        //     // Redirect to login page
+        //     // header("location: register.php");
+        // } else {
+        //     echo $stmt->error;
+        //     echo "Oops! Something went wrong. Please try again later5.";
+        // }
 
         // Close statement
         mysqli_stmt_close($stmt);
@@ -218,21 +218,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $param_budget = $budget;
 
         // Attempt to execute the prepared statement
-        if (mysqli_stmt_execute($stmt)) {
-            // Redirect to login page
-            header("location: login.php");
+        // if (mysqli_stmt_execute($stmt)) {
+        //     // Redirect to login page
+        //     // header("location: login.php");
 
-        } else {
-            echo $stmt->error;
-            echo "Oops! Something went wrong. Please try again later.";
-        }
+        // } else {
+        //     echo $stmt->error;
+        //     echo "Oops! Something went wrong. Please try again later.";
+        // }
 
         // Close statement
         mysqli_stmt_close($stmt);
     }
     // Adding Seller Info
     if (isset($_POST['checkbox'])) {
-        
     } else {
         $em = "SELECT user_id FROM users WHERE username = '$username'";
         $q = mysqli_query($link, $em);
@@ -252,17 +251,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             // Attempt to execute the prepared statement
-            if (mysqli_stmt_execute($stmt)) {
-                // Redirect to login page
-                header("location: login.php");
-            } else {
-                echo $stmt->error;
-                echo "Oops! Something went wrong. Please try again later.";
-            }
+            // if (mysqli_stmt_execute($stmt)) {
+            //     // Redirect to login page
+            //     // header("location: login.php");
+            // } else {
+            //     echo $stmt->error;
+            //     echo "Oops! Something went wrong. Please try again later.";
+            // }
 
             // Close statement
             mysqli_stmt_close($stmt);
         }
+    }
+
+    if(isset($_POST['isseller'])){
+        echo "got in seller";
+        addSeller($id, 0, 0);
+    }else{
+        echo "got in buyerer";
+        $desire_type = trim($_POST["desire_type"]);
+        $budget = trim($_POST["budget"]);
+        addBuyer($id, $desire_type,$budget);
     }
 }
 
@@ -430,15 +439,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label>Budget</label>
-                    <input type="text" name="budget" class="form-control ">
+                    <input type="number" name="budget" class="form-control ">
                     <span class="invalid-feedback"></span>
                 </div>
-                <h6> Do you want to become a Seller?</h6>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-
+                <div class = "form-group">
+                <input type="checkbox" id="isseller" name="isseller" value="seller">
+                <label for="isseller">Seller</label><br>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+                <script>
+                        const cb = document.querySelector('#isseller');
+                        cb.onclick = () => {
+                            if (cb.checked){
+                                <?php echo "checked!!!";?>
+                                document.getElementByName("desire_type").innerHTML = "checked";
+                            }else{
+                                <?php echo " not checked!!!";?>
+                                document.getElementByName("desire_type").innerHTML = "unchecked";
+                            }
+                        };
+                </script>
+                </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Submit" id="checkBtn">
                     <input type="reset" class="btn btn-secondary ml-2" value="Reset">

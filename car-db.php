@@ -119,5 +119,23 @@ function addGender($user_id, $gender){
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
 }
+
+function addSeller($user_id, $rating, $num_rating){
+  global $link;
+  $sql = "INSERT INTO seller  VALUES (?,?,?)";
+  $stmt = mysqli_prepare($link, $sql);
+  mysqli_stmt_bind_param($stmt, "iii", $user_id, $rating, $num_rating);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+}
+
+function addBuyer($user_id, $desire_type, $budget){
+  global $link;
+  $sql = "INSERT INTO buyer  VALUES (?,?,?)";
+  $stmt = mysqli_prepare($link, $sql);
+  mysqli_stmt_bind_param($stmt, "isi", $user_id, $desire_type, $budget);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+}
 ?>
 
