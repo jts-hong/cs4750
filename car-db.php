@@ -10,7 +10,7 @@ function getAllCars()
 function addLike($car_id, $user_id)
 {
   global $link;
-  $sql = "INSERT INTO likecar VALUES(?, ?)";
+  $sql = "INSERT INTO likeCar VALUES(?, ?)";
   $stmt = mysqli_prepare($link, $sql);
   mysqli_stmt_bind_param($stmt, "ii", $user_id, $car_id);
   mysqli_stmt_execute($stmt);
@@ -20,7 +20,7 @@ function addLike($car_id, $user_id)
 
 function removeLike($car_id, $user_id){
   global $link;
-  $sql = "DELETE FROM `likecar` WHERE `likecar`.`user_id` = ? AND `likecar`.`car_id` = ?";
+  $sql = "DELETE FROM `likeCar` WHERE `likeCar`.`user_id` = ? AND `likeCar`.`car_id` = ?";
   $stmt = mysqli_prepare($link, $sql);
   mysqli_stmt_bind_param($stmt, "ii", $user_id, $car_id);
   mysqli_stmt_execute($stmt);

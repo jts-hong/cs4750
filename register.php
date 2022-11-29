@@ -338,55 +338,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="wrapper">
             <h2>Sign Up</h2>
             <p>Please fill this form to create an account.</p>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" required>
 
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                    <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" required>
                     <span class="invalid-feedback"><?php echo $username_err; ?></span>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                    <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" required>
                     <span class="invalid-feedback"><?php echo $password_err; ?></span>
                 </div>
                 <div class="form-group">
                     <label>Confirm Password</label>
-                    <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                    <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>" required>
                     <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                 </div>
 
                 <div class="form-group">
                     <label>First Name</label>
-                    <input type="text" name="firstname" class="form-control ">
+                    <input type="text" name="firstname" class="form-control "required>
                     <span class="invalid-feedback"></span>
                 </div>
 
                 <div class="form-group">
                     <label>Last Name</label>
-                    <input type="text" name="lastname" class="form-control ">
+                    <input type="text" name="lastname" class="form-control " required>
                     <span class="invalid-feedback"></span>
                 </div>
 
                 <div class="form-group">
                     <label>Address</label>
-                    <input type="text" name="address" class="form-control ">
+                    <input type="text" name="address" class="form-control " required>
                     <span class="invalid-feedback"></span>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control ">
+                    <input type="text" name="email" class="form-control " required>
                     <span class="invalid-feedback"></span>
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="text" name="phone" class="form-control ">
+                    <input type="text" name="phone" class="form-control " required>
                     <span class="invalid-feedback"></span>
                 </div>
                 <div class="form-group">
                     <label>Gender</label>
-                    <input type="text" name="gender" class="form-control ">
+                    <input type="text" name="gender" class="form-control " required>
                     <span class="invalid-feedback"></span>
                 </div>
                 <div class="form-group">
@@ -401,7 +401,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <h6> Do you want to become a Seller?</h6>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     <span class="slider round"></span>
                 </label>
 
