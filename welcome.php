@@ -37,6 +37,7 @@ foreach ($list_of_sellers as $seller) :
     }
 endforeach;
 
+
 ?>
 
 <!DOCTYPE html>
@@ -68,8 +69,7 @@ endforeach;
     <?php
     if ($_SESSION["is_seller"]) { ?>
         <a href="addcar.php" class="btn btn-danger ml-3"> Add Car</a><?php
-                                                                    }
-                                                                        ?>
+                                                                    } ?>
     <br></br>
     <?php
     $per_page_record = 10; // Number of entries to show in a page.

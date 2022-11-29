@@ -118,7 +118,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     $row2 = mysqli_fetch_array($rs_result2);
 
     
-
+    $message = "";
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -127,7 +127,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         $model = $_POST['model'];
         $selling_price = $_POST['selling_price'];
         $mileage = $_POST['mileage'];
-        $availablity = 1;
+        
+        $availablity =  $_POST["avail_radio"];
+        echo $availablity;
+        if (is_null($availablity)){
+            $availablity=0;
+        }
         $fuel_type = $_POST['fuel_type'];
         $transmission = $_POST['transmission'];
         $mpg = $_POST['mpg'];
@@ -135,7 +140,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 
         if ($stmt = mysqli_prepare($link, "INSERT INTO vehicle(make,year,model,selling_price,mileage,availability,fuel_type,transmission,mpg,description,user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);")) {
-            mysqli_stmt_bind_param($stmt, "sssssssssss", $make, $year, $model, $selling_price, $mileage, $availablity, $fuel_type, $transmission, $mpg, $description,$user_id);
+            mysqli_stmt_bind_param($stmt, "sisiiissssi", $make, $year, $model, $selling_price, $mileage, $availablity, $fuel_type, $transmission, $mpg, $description,$user_id);
 
             // Set parameters
             $param_make = $make;
@@ -152,6 +157,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
+                header("location: login.php");
             } else {
                 echo $stmt->error;
                 echo "Oops! Something went wrong. Please try again later.";
@@ -173,6 +179,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <h2 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>.  Please add your car</h2>
         
         <form method="POST">
+            <?php echo $message; ?>
             <div class="form-group">
                 <label>Make</label>
                 <input type="text" name="make" class="form-control ">
@@ -181,7 +188,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
             <div class="form-group">
                 <label>Year</label>
-                <input type="text" name="year" class="form-control ">
+                <input type="number" name="year" min="1800" max="2023"class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
 
@@ -193,19 +200,15 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
             <div class="form-group">
                 <label>Selling Price</label>
-                <input type="text" name="selling_price" class="form-control ">
+                <input type="number" name="selling_price"class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
                 <label>Mileage</label>
-                <input type="text" name="mileage" class="form-control ">
+                <input type="number" name="mileage" min="0" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
-            <div class="form-group">
-                <label>Availablity</label>
-                <input type="text" name="availablity" class="form-control ">
-                <span class="invalid-feedback"></span>
-            </div>
+
             <div class="form-group">
                 <label>Fuel Type</label>
                 <input type="text" name="fuel_type" class="form-control ">
@@ -218,13 +221,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </div>
             <div class="form-group">
                 <label>MPG</label>
-                <input type="text" name="mpg" class="form-control ">
+                <input type="number" name="mpg" class="form-control ">
                 <span class="invalid-feedback"></span>
             </div>
             <div class="form-group">
                 <label>Description</label>
                 <input type="text" name="description" class="form-control ">
                 <span class="invalid-feedback"></span>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="avail" name="avail_radio" value="1">
+                <label for="male">Available</label><br>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">

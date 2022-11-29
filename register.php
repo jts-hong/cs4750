@@ -232,6 +232,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     // Adding Seller Info
     if (isset($_POST['checkbox'])) {
+        
     } else {
         $em = "SELECT user_id FROM users WHERE username = '$username'";
         $q = mysqli_query($link, $em);
