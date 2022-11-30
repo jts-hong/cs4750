@@ -68,8 +68,10 @@ endforeach;
         </b>. Welcome to CARHUGE</h1>
     <?php
     if ($_SESSION["is_seller"]) { ?>
-        <a href="addcar.php" class="btn btn-danger ml-3"> Add Car</a><?php
+        <a href="addcar.php" class="btn btn-danger ml-3"> Add Car</a>
+        <a href="deletecar.php" class="btn btn-primary ml-3"> Delete Car</a><?php
                                                                     } ?>
+                                                                    
     <br></br>
     <?php
     $per_page_record = 10; // Number of entries to show in a page.

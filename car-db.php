@@ -137,5 +137,6 @@ function addBuyer($user_id, $desire_type, $budget){
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
 }
+
 ?>
 

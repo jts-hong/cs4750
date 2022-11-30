@@ -1,0 +1,1801 @@
+user_id,desire_type,budget
+201,Crossover,52253
+202,Sedan,60841
+203,Station Wagon,47264
+204,Pickup Truck,39652
+205,Minivan,28255
+206,Crossover,42300
+207,Convertible,57286
+208,Crossover,33846
+209,Hatchback,45501
+210,Hatchback,30752
+211,SUV,44673
+212,Sedan,51559
+213,SUV,52444
+214,Minivan,40871
+215,Station Wagon,49151
+216,Hatchback,43995
+217,Sports Car,54712
+218,Sports Car,60372
+219,Pickup Truck,33282
+220,Coupe,50381
+221,Coupe,40603
+222,Station Wagon,66972
+223,SUV,51973
+224,Pickup Truck,48551
+225,Station Wagon,37622
+226,Convertible,46748
+227,Crossover,46254
+228,Pickup Truck,44818
+229,Crossover,44718
+230,Sedan,40198
+231,Sports Car,59472
+232,Station Wagon,36050
+233,Pickup Truck,56403
+234,Sports Car,30007
+235,Hatchback,56295
+236,Minivan,47842
+237,SUV,51054
+238,Crossover,42825
+239,Sports Car,35978
+240,Sedan,35802
+241,SUV,42797
+242,Convertible,54778
+243,Coupe,51897
+244,Pickup Truck,31539
+245,Hatchback,58921
+246,Sedan,49962
+247,Station Wagon,52682
+248,Minivan,39696
+249,Coupe,38170
+250,Minivan,33848
+251,Convertible,34262
+252,Hatchback,50336
+253,Coupe,46859
+254,Sedan,52215
+255,Convertible,54263
+256,Pickup Truck,36220
+257,Sports Car,37771
+258,Hatchback,56683
+259,Sports Car,36099
+260,Sports Car,58527
+261,Minivan,44614
+262,Sports Car,36186
+263,Minivan,46888
+264,Sports Car,34324
+265,Convertible,34626
+266,SUV,33435
+267,Crossover,47106
+268,Convertible,55890
+269,Crossover,52183
+270,Sedan,42099
+271,Coupe,37231
+272,Crossover,48965
+273,Convertible,33366
+274,Pickup Truck,43477
+275,SUV,39995
+276,Crossover,43791
+277,Crossover,38803
+278,Convertible,44103
+279,Sports Car,41535
+280,Coupe,63429
+281,Minivan,61589
+282,Sedan,47720
+283,Sports Car,36835
+284,Hatchback,60911
+285,Coupe,59583
+286,Crossover,60202
+287,Crossover,37840
+288,Convertible,47118
+289,SUV,43508
+290,Crossover,48349
+291,Station Wagon,40811
+292,Minivan,35638
+293,Hatchback,39791
+294,Convertible,37125
+295,Sedan,47492
+296,SUV,49923
+297,Hatchback,41013
+298,Coupe,45105
+299,Coupe,37432
+300,Convertible,55893
+301,Crossover,56617
+302,Pickup Truck,50539
+303,Convertible,39768
+304,Coupe,41392
+305,SUV,32228
+306,Sports Car,39724
+307,Sports Car,43795
+308,Sports Car,42418
+309,Station Wagon,39336
+310,Coupe,21666
+311,Pickup Truck,36622
+312,Sedan,37679
+313,Sports Car,47708
+314,Convertible,60514
+315,Pickup Truck,54505
+316,Sports Car,33705
+317,Sports Car,48152
+318,Pickup Truck,44392
+319,Crossover,51266
+320,Crossover,53604
+321,Coupe,49353
+322,Sports Car,56936
+323,Crossover,45864
+324,Sports Car,31836
+325,Sports Car,39356
+326,Crossover,45841
+327,Convertible,56746
+328,Hatchback,35802
+329,Sports Car,58912
+330,Crossover,57292
+331,Minivan,41581
+332,Sedan,54797
+333,Minivan,42399
+334,Sports Car,37825
+335,Minivan,50239
+336,Crossover,59504
+337,Pickup Truck,38162
+338,SUV,48072
+339,Sports Car,26681
+340,Coupe,46750
+341,SUV,22631
+342,Pickup Truck,39256
+343,Sports Car,44425
+344,Crossover,59055
+345,Pickup Truck,60809
+346,Pickup Truck,42410
+347,SUV,45641
+348,Pickup Truck,45294
+349,Convertible,34385
+350,Coupe,44376
+351,SUV,41172
+352,Coupe,46379
+353,Convertible,45889
+354,Sports Car,49610
+355,Station Wagon,40218
+356,Sports Car,44905
+357,SUV,55379
+358,Convertible,52020
+359,Convertible,43193
+360,Station Wagon,63247
+361,Coupe,47476
+362,Coupe,42770
+363,Pickup Truck,34898
+364,Minivan,45737
+365,Sports Car,60112
+366,Sedan,30286
+367,Hatchback,50844
+368,Hatchback,30209
+369,Sedan,33130
+370,Hatchback,48400
+371,Hatchback,47518
+372,Pickup Truck,43934
+373,Crossover,33355
+374,Station Wagon,54576
+375,Coupe,50217
+376,Crossover,48242
+377,Convertible,28134
+378,Convertible,44999
+379,SUV,36730
+380,Coupe,40175
+381,Pickup Truck,51769
+382,Pickup Truck,31503
+383,Sports Car,41219
+384,Coupe,39538
+385,Station Wagon,37820
+386,Sports Car,52483
+387,SUV,39428
+388,Minivan,46094
+389,Pickup Truck,41553
+390,Minivan,42129
+391,Pickup Truck,44752
+392,Convertible,47446
+393,Sports Car,60673
+394,SUV,63660
+395,Sedan,39949
+396,Station Wagon,30745
+397,SUV,56246
+398,Convertible,40475
+399,Pickup Truck,47099
+400,Hatchback,53008
+401,SUV,50829
+402,Minivan,58307
+403,Coupe,42708
+404,Coupe,52216
+405,Coupe,57885
+406,Sports Car,38530
+407,SUV,35467
+408,Pickup Truck,46444
+409,Hatchback,36214
+410,Pickup Truck,38909
+411,SUV,34437
+412,Minivan,39039
+413,Coupe,36743
+414,Convertible,44480
+415,Convertible,48079
+416,Pickup Truck,44046
+417,Crossover,52938
+418,Minivan,58111
+419,Convertible,63916
+420,Sports Car,43707
+421,SUV,51776
+422,Minivan,47529
+423,Coupe,47190
+424,Hatchback,36148
+425,Hatchback,49745
+426,Station Wagon,40481
+427,SUV,34142
+428,Convertible,65298
+429,Sports Car,43931
+430,Coupe,63761
+431,Station Wagon,44416
+432,Minivan,55819
+433,Sedan,42592
+434,Minivan,41563
+435,Coupe,57881
+436,Sedan,38105
+437,SUV,42564
+438,SUV,37292
+439,Convertible,32714
+440,Minivan,42382
+441,Sedan,43626
+442,Pickup Truck,70218
+443,Coupe,43110
+444,Station Wagon,41808
+445,Pickup Truck,43583
+446,Hatchback,46589
+447,Minivan,39826
+448,Convertible,58406
+449,Hatchback,43581
+450,Sedan,36295
+451,SUV,60459
+452,SUV,35201
+453,Hatchback,58546
+454,SUV,39743
+455,Sedan,42928
+456,SUV,34809
+457,Convertible,51055
+458,Hatchback,50840
+459,Crossover,68625
+460,Sports Car,47202
+461,Pickup Truck,47665
+462,Station Wagon,24065
+463,Hatchback,52451
+464,SUV,45645
+465,Hatchback,46139
+466,Pickup Truck,49251
+467,SUV,30714
+468,Crossover,39301
+469,Hatchback,62142
+470,Sports Car,36437
+471,Minivan,53684
+472,Station Wagon,50785
+473,SUV,36790
+474,Coupe,50496
+475,Hatchback,46181
+476,Pickup Truck,52828
+477,Minivan,46580
+478,Crossover,47514
+479,Convertible,38005
+480,SUV,51430
+481,Minivan,49334
+482,Hatchback,42579
+483,Crossover,26027
+484,Crossover,58720
+485,Crossover,24927
+486,Pickup Truck,51091
+487,SUV,50596
+488,SUV,68919
+489,Pickup Truck,54567
+490,Coupe,49189
+491,Coupe,57641
+492,Sedan,39018
+493,Sports Car,44858
+494,Minivan,37649
+495,SUV,34419
+496,Convertible,60283
+497,Coupe,54626
+498,Sports Car,48797
+499,Sedan,57815
+500,Coupe,40850
+501,Crossover,34271
+502,Pickup Truck,50845
+503,Coupe,30591
+504,Hatchback,43738
+505,Hatchback,33257
+506,Crossover,51963
+507,Hatchback,35528
+508,Sedan,48554
+509,Coupe,51698
+510,Minivan,72130
+511,Coupe,36786
+512,Sedan,50496
+513,Sedan,38804
+514,Station Wagon,42878
+515,Coupe,45548
+516,Convertible,41145
+517,Sports Car,46403
+518,Crossover,54211
+519,Pickup Truck,49441
+520,Hatchback,38549
+521,Sports Car,49795
+522,Sedan,55506
+523,SUV,50604
+524,Pickup Truck,52092
+525,Station Wagon,40963
+526,Pickup Truck,47096
+527,Pickup Truck,53335
+528,Sports Car,44653
+529,Convertible,28448
+530,SUV,44833
+531,Minivan,38406
+532,Station Wagon,34375
+533,Crossover,35001
+534,Pickup Truck,45693
+535,Sedan,24282
+536,Coupe,49596
+537,Sports Car,23228
+538,Sports Car,52285
+539,Coupe,43681
+540,Pickup Truck,53084
+541,Convertible,48667
+542,SUV,29689
+543,Sports Car,40733
+544,Pickup Truck,46204
+545,Pickup Truck,36407
+546,Convertible,55100
+547,Crossover,32910
+548,Crossover,57080
+549,Crossover,42480
+550,Hatchback,30037
+551,SUV,48815
+552,Minivan,47529
+553,Crossover,41916
+554,Sedan,41786
+555,Convertible,51264
+556,Coupe,37925
+557,Pickup Truck,55044
+558,Coupe,41279
+559,Pickup Truck,44162
+560,Pickup Truck,39355
+561,Hatchback,38545
+562,Convertible,39004
+563,Sedan,53033
+564,Minivan,40761
+565,Station Wagon,38543
+566,Convertible,45044
+567,Hatchback,29930
+568,Crossover,48002
+569,Station Wagon,46857
+570,Convertible,40776
+571,Hatchback,62829
+572,Station Wagon,37990
+573,Coupe,32368
+574,Coupe,37612
+575,SUV,48346
+576,Pickup Truck,43076
+577,Sedan,43619
+578,Station Wagon,53781
+579,SUV,44797
+580,Coupe,48686
+581,Sports Car,30425
+582,Crossover,41713
+583,Pickup Truck,50391
+584,Convertible,39504
+585,Convertible,30522
+586,Crossover,39168
+587,Crossover,47125
+588,Convertible,36717
+589,Sports Car,40895
+590,Hatchback,65843
+591,Crossover,34054
+592,SUV,47914
+593,Pickup Truck,39212
+594,Station Wagon,40628
+595,SUV,64732
+596,Pickup Truck,40764
+597,SUV,27227
+598,Minivan,38722
+599,Sports Car,44097
+600,Sports Car,66843
+601,SUV,41841
+602,Hatchback,51291
+603,Convertible,49568
+604,Coupe,26663
+605,Coupe,41895
+606,Pickup Truck,42762
+607,Convertible,46349
+608,Pickup Truck,34852
+609,Pickup Truck,45743
+610,Crossover,20684
+611,Sports Car,35892
+612,Sports Car,53407
+613,Sedan,49827
+614,Sports Car,39338
+615,Crossover,55385
+616,Hatchback,42206
+617,Crossover,50364
+618,Hatchback,45676
+619,Pickup Truck,35633
+620,SUV,35597
+621,Pickup Truck,54117
+622,Convertible,47838
+623,SUV,43534
+624,SUV,44819
+625,Crossover,50753
+626,Convertible,41001
+627,Sports Car,53031
+628,Convertible,51174
+629,Hatchback,52964
+630,Coupe,38416
+631,Sports Car,48790
+632,Crossover,36653
+633,Crossover,28184
+634,Crossover,62827
+635,Sedan,48785
+636,Station Wagon,46492
+637,Sports Car,44094
+638,Convertible,48368
+639,Coupe,26389
+640,Convertible,33641
+641,Pickup Truck,31367
+642,SUV,42038
+643,Crossover,47054
+644,Coupe,57493
+645,Coupe,56993
+646,SUV,39017
+647,SUV,42748
+648,Coupe,42217
+649,Convertible,50801
+650,Crossover,41366
+651,SUV,45404
+652,Convertible,40069
+653,Sedan,35221
+654,Pickup Truck,48432
+655,Station Wagon,43890
+656,Sedan,34792
+657,Sports Car,46622
+658,SUV,53683
+659,Sports Car,47183
+660,Sedan,44424
+661,Hatchback,54592
+662,Station Wagon,43088
+663,Crossover,61966
+664,Crossover,49985
+665,Station Wagon,41024
+666,Sports Car,56488
+667,Hatchback,56077
+668,Crossover,34190
+669,Hatchback,60409
+670,Convertible,34402
+671,Coupe,35722
+672,Minivan,58897
+673,Coupe,35771
+674,Hatchback,47127
+675,Crossover,38317
+676,Minivan,40651
+677,Hatchback,44467
+678,Minivan,40382
+679,Pickup Truck,60830
+680,Sports Car,55243
+681,SUV,44487
+682,Sedan,59068
+683,SUV,53957
+684,Crossover,35679
+685,Station Wagon,36349
+686,Crossover,41285
+687,Station Wagon,33442
+688,Minivan,57014
+689,Station Wagon,41128
+690,Sports Car,37901
+691,Coupe,58761
+692,Pickup Truck,41458
+693,Hatchback,29710
+694,Sports Car,49217
+695,Coupe,48870
+696,Sports Car,43439
+697,Crossover,49706
+698,Coupe,41262
+699,Pickup Truck,47388
+700,SUV,44353
+701,Convertible,30728
+702,Sedan,34603
+703,Coupe,41289
+704,Station Wagon,55319
+705,Convertible,50661
+706,Minivan,43563
+707,Sedan,37729
+708,Pickup Truck,41907
+709,Station Wagon,43517
+710,Crossover,54841
+711,Hatchback,48858
+712,Sports Car,61835
+713,Crossover,29868
+714,Crossover,59243
+715,Minivan,49174
+716,SUV,41484
+717,Pickup Truck,43257
+718,Minivan,29174
+719,Minivan,41571
+720,Minivan,50870
+721,Sedan,54478
+722,Crossover,45434
+723,Pickup Truck,44694
+724,Coupe,52750
+725,Sedan,35520
+726,Sedan,62576
+727,Minivan,45093
+728,Sports Car,32481
+729,Pickup Truck,47048
+730,Sedan,49584
+731,Pickup Truck,29666
+732,Pickup Truck,25437
+733,Hatchback,13775
+734,SUV,53100
+735,Station Wagon,54175
+736,Sedan,50164
+737,Crossover,35283
+738,Station Wagon,35074
+739,Pickup Truck,51026
+740,Sedan,33034
+741,Station Wagon,35473
+742,Pickup Truck,28400
+743,Sedan,61877
+744,Hatchback,35599
+745,SUV,48796
+746,Pickup Truck,28449
+747,Coupe,63820
+748,Hatchback,48177
+749,Sedan,38615
+750,Sports Car,47796
+751,Sedan,53263
+752,Station Wagon,27924
+753,Convertible,31604
+754,Sports Car,55979
+755,Minivan,46377
+756,Minivan,38335
+757,Hatchback,32773
+758,Crossover,48617
+759,Sports Car,37585
+760,Coupe,39454
+761,Sedan,36226
+762,Hatchback,40887
+763,Hatchback,49785
+764,Pickup Truck,44655
+765,Convertible,62354
+766,Convertible,45107
+767,SUV,48791
+768,SUV,36005
+769,SUV,45213
+770,Sedan,39827
+771,Pickup Truck,43979
+772,Convertible,47544
+773,Station Wagon,50192
+774,Crossover,54333
+775,Sedan,54972
+776,Crossover,55102
+777,Coupe,49438
+778,Pickup Truck,48817
+779,Hatchback,58042
+780,Coupe,50278
+781,Minivan,45050
+782,Hatchback,37284
+783,Pickup Truck,43958
+784,Pickup Truck,42045
+785,Convertible,57141
+786,Hatchback,34510
+787,Pickup Truck,53216
+788,Crossover,29316
+789,Hatchback,43818
+790,SUV,46269
+791,Minivan,46262
+792,Convertible,38235
+793,Crossover,46858
+794,Convertible,59658
+795,Minivan,64013
+796,Minivan,53076
+797,Hatchback,49371
+798,Sedan,43869
+799,Crossover,59810
+800,Pickup Truck,19170
+801,Sedan,49640
+802,Hatchback,51680
+803,Crossover,54681
+804,Sports Car,48159
+805,Pickup Truck,41455
+806,Pickup Truck,48352
+807,Convertible,52169
+808,Coupe,41444
+809,Hatchback,61768
+810,Sedan,44087
+811,Pickup Truck,46734
+812,Minivan,51924
+813,SUV,54619
+814,Sedan,50530
+815,Sports Car,26711
+816,Station Wagon,50440
+817,Sports Car,51349
+818,Sedan,45280
+819,Pickup Truck,26376
+820,Station Wagon,57367
+821,Crossover,40350
+822,Crossover,46158
+823,Minivan,46560
+824,Pickup Truck,54263
+825,Sedan,30140
+826,Pickup Truck,23689
+827,Pickup Truck,48614
+828,Hatchback,37143
+829,Station Wagon,35741
+830,Sedan,43712
+831,SUV,59058
+832,Sports Car,49140
+833,Sports Car,64215
+834,Minivan,34793
+835,Crossover,69195
+836,SUV,37825
+837,Hatchback,57798
+838,Sports Car,39503
+839,Minivan,45725
+840,Hatchback,38378
+841,Station Wagon,50422
+842,Hatchback,46992
+843,Convertible,48275
+844,Minivan,28665
+845,Hatchback,41754
+846,Minivan,49616
+847,Sedan,53423
+848,SUV,53777
+849,Sedan,45960
+850,Crossover,68037
+851,Convertible,49089
+852,Sports Car,35787
+853,Minivan,45567
+854,Minivan,34695
+855,Coupe,38268
+856,Station Wagon,47282
+857,Convertible,25037
+858,Hatchback,55388
+859,Minivan,57659
+860,Sedan,49685
+861,SUV,34097
+862,Hatchback,47159
+863,Sports Car,39604
+864,Minivan,54305
+865,Coupe,55268
+866,SUV,53934
+867,Coupe,60219
+868,Sedan,45832
+869,Sedan,33646
+870,Station Wagon,39682
+871,Minivan,43577
+872,SUV,38783
+873,Sedan,53623
+874,Convertible,23304
+875,Minivan,57141
+876,SUV,52060
+877,Convertible,48518
+878,Crossover,48453
+879,Station Wagon,43008
+880,Hatchback,45501
+881,Coupe,54729
+882,Convertible,49982
+883,Station Wagon,49905
+884,Sports Car,29941
+885,Coupe,37038
+886,Coupe,26631
+887,Station Wagon,38164
+888,Coupe,48370
+889,Station Wagon,39069
+890,Coupe,43369
+891,Hatchback,44519
+892,Coupe,41047
+893,Pickup Truck,46258
+894,Pickup Truck,49347
+895,Minivan,51776
+896,Convertible,46382
+897,Crossover,55043
+898,Sedan,48203
+899,SUV,33170
+900,Convertible,38157
+901,Convertible,28215
+902,Minivan,42215
+903,Station Wagon,60571
+904,SUV,56331
+905,Minivan,55497
+906,Coupe,34143
+907,Pickup Truck,43549
+908,Sports Car,36019
+909,Sports Car,64826
+910,Minivan,43741
+911,Crossover,39136
+912,Station Wagon,33124
+913,Sports Car,44952
+914,SUV,49840
+915,Coupe,40510
+916,Hatchback,39134
+917,Hatchback,39087
+918,Minivan,31740
+919,Crossover,51283
+920,Station Wagon,42376
+921,Minivan,40639
+922,Coupe,50701
+923,Minivan,40811
+924,Sedan,26154
+925,Sedan,31329
+926,Sedan,27778
+927,Coupe,58903
+928,Crossover,41661
+929,Sports Car,53135
+930,Sedan,27298
+931,Crossover,53010
+932,Convertible,40585
+933,Sports Car,44769
+934,Pickup Truck,54844
+935,Pickup Truck,44905
+936,Hatchback,56703
+937,Convertible,56060
+938,Hatchback,57591
+939,SUV,56614
+940,Sedan,54308
+941,Sports Car,47869
+942,SUV,41650
+943,Pickup Truck,37499
+944,SUV,51382
+945,Convertible,66792
+946,Station Wagon,45569
+947,Coupe,34881
+948,Station Wagon,46492
+949,Crossover,57499
+950,Coupe,50689
+951,Convertible,58610
+952,Station Wagon,37753
+953,Hatchback,38617
+954,Minivan,59392
+955,SUV,41046
+956,Station Wagon,46338
+957,Sedan,51674
+958,Hatchback,60702
+959,Sedan,39717
+960,Sports Car,44973
+961,SUV,32728
+962,Crossover,50976
+963,Coupe,45441
+964,Crossover,14800
+965,SUV,44803
+966,Sedan,53243
+967,Minivan,50520
+968,Pickup Truck,42846
+969,Station Wagon,44730
+970,Pickup Truck,33832
+971,Crossover,61430
+972,Sedan,49589
+973,Station Wagon,61771
+974,Coupe,46737
+975,Hatchback,32697
+976,SUV,39493
+977,SUV,31434
+978,Station Wagon,46060
+979,Coupe,57091
+980,Crossover,29829
+981,Sedan,40011
+982,Sedan,35985
+983,Sedan,47242
+984,Convertible,31180
+985,Hatchback,34648
+986,Crossover,36839
+987,Pickup Truck,56958
+988,Minivan,51079
+989,Sedan,50085
+990,Hatchback,41296
+991,Coupe,51293
+992,Minivan,66581
+993,Convertible,33471
+994,Station Wagon,70564
+995,Station Wagon,48015
+996,Hatchback,47206
+997,Hatchback,55887
+998,Sedan,43467
+999,Convertible,34103
+1000,Sedan,48100
+1001,Coupe,56496
+1002,Station Wagon,43412
+1003,Sedan,46426
+1004,Convertible,58389
+1005,Pickup Truck,44590
+1006,Coupe,46930
+1007,Crossover,34412
+1008,Minivan,29583
+1009,Crossover,36567
+1010,SUV,46445
+1011,Sports Car,32988
+1012,Sedan,40045
+1013,Sports Car,51864
+1014,Crossover,31878
+1015,Minivan,36177
+1016,Convertible,38348
+1017,Sedan,43600
+1018,Minivan,36441
+1019,Convertible,67723
+1020,Sedan,54259
+1021,Minivan,43822
+1022,Sedan,58169
+1023,Crossover,59871
+1024,SUV,43021
+1025,Coupe,45724
+1026,Coupe,46297
+1027,Crossover,38819
+1028,Convertible,34859
+1029,Hatchback,54584
+1030,Pickup Truck,50278
+1031,Sports Car,53696
+1032,Minivan,34795
+1033,Crossover,41228
+1034,Pickup Truck,26841
+1035,Pickup Truck,49536
+1036,Hatchback,45891
+1037,Station Wagon,52307
+1038,Pickup Truck,55463
+1039,Convertible,38136
+1040,Sedan,48847
+1041,Crossover,43504
+1042,Crossover,54926
+1043,Crossover,47373
+1044,Convertible,37941
+1045,SUV,38314
+1046,Minivan,29905
+1047,Hatchback,46449
+1048,Hatchback,39893
+1049,Convertible,59314
+1050,Sports Car,45941
+1051,Sports Car,51090
+1052,Sports Car,44662
+1053,SUV,20578
+1054,Crossover,46367
+1055,Station Wagon,46805
+1056,Sedan,31338
+1057,SUV,44703
+1058,Station Wagon,51847
+1059,Sedan,59526
+1060,Crossover,48996
+1061,Sedan,52258
+1062,Crossover,37999
+1063,Convertible,16943
+1064,Pickup Truck,37825
+1065,Coupe,30911
+1066,Crossover,45368
+1067,Pickup Truck,53017
+1068,Coupe,45211
+1069,Minivan,39744
+1070,Crossover,42240
+1071,Convertible,42274
+1072,Station Wagon,61050
+1073,Sports Car,32352
+1074,Sports Car,52530
+1075,Minivan,42219
+1076,Convertible,47956
+1077,Hatchback,39591
+1078,Coupe,35334
+1079,Crossover,46608
+1080,Sports Car,44159
+1081,Sedan,47063
+1082,Sedan,34217
+1083,Minivan,55028
+1084,Sports Car,56311
+1085,Sedan,32514
+1086,Convertible,60089
+1087,Hatchback,39851
+1088,Pickup Truck,51235
+1089,Pickup Truck,54935
+1090,Coupe,41908
+1091,SUV,42783
+1092,Minivan,43295
+1093,Convertible,43312
+1094,SUV,47679
+1095,SUV,63188
+1096,Coupe,65913
+1097,Pickup Truck,48499
+1098,Sedan,30758
+1099,Pickup Truck,40080
+1100,Convertible,38600
+1101,Sedan,53548
+1102,Convertible,53462
+1103,Coupe,32311
+1104,Minivan,34661
+1105,Station Wagon,38094
+1106,Coupe,60273
+1107,Crossover,47327
+1108,Hatchback,62200
+1109,Sports Car,39344
+1110,Sedan,27113
+1111,Sedan,61011
+1112,Sports Car,48840
+1113,Station Wagon,31621
+1114,Minivan,65638
+1115,Minivan,35068
+1116,SUV,60706
+1117,Convertible,52555
+1118,Convertible,40093
+1119,Convertible,49253
+1120,Crossover,28880
+1121,Sports Car,44148
+1122,Hatchback,33382
+1123,Sports Car,34053
+1124,Crossover,39371
+1125,Minivan,54693
+1126,Station Wagon,40306
+1127,Crossover,52249
+1128,Coupe,56690
+1129,Sports Car,42826
+1130,Sports Car,46884
+1131,Convertible,55450
+1132,Coupe,36255
+1133,Hatchback,26202
+1134,Station Wagon,44951
+1135,SUV,52793
+1136,Hatchback,30624
+1137,Minivan,61149
+1138,Crossover,40719
+1139,Minivan,21352
+1140,SUV,46806
+1141,Sedan,43062
+1142,Sports Car,44807
+1143,Minivan,52755
+1144,Minivan,44679
+1145,SUV,44217
+1146,SUV,40039
+1147,Sports Car,55426
+1148,SUV,63196
+1149,Station Wagon,37922
+1150,Station Wagon,36628
+1151,Station Wagon,51728
+1152,Sports Car,49340
+1153,Pickup Truck,59614
+1154,Sports Car,35936
+1155,SUV,60242
+1156,Hatchback,56506
+1157,SUV,50702
+1158,Crossover,34445
+1159,Pickup Truck,33357
+1160,Station Wagon,54286
+1161,SUV,41341
+1162,Pickup Truck,39237
+1163,SUV,42893
+1164,Sedan,36240
+1165,Sedan,38559
+1166,Crossover,68783
+1167,Hatchback,32208
+1168,Sports Car,52928
+1169,Coupe,35072
+1170,Hatchback,28932
+1171,Convertible,44782
+1172,Minivan,35757
+1173,Pickup Truck,54165
+1174,Minivan,63344
+1175,Station Wagon,46115
+1176,Minivan,52006
+1177,Coupe,50838
+1178,Convertible,60289
+1179,SUV,33071
+1180,Sports Car,35892
+1181,Sports Car,40421
+1182,Coupe,46103
+1183,Convertible,39797
+1184,Crossover,40892
+1185,SUV,41614
+1186,Minivan,43086
+1187,Convertible,42310
+1188,SUV,53344
+1189,Hatchback,41882
+1190,Crossover,61783
+1191,Pickup Truck,38839
+1192,Convertible,24617
+1193,Crossover,44110
+1194,Sedan,39578
+1195,Coupe,63212
+1196,Pickup Truck,40298
+1197,Sedan,38717
+1198,Minivan,61629
+1199,Crossover,39306
+1200,Sports Car,50004
+1201,Pickup Truck,38139
+1202,Minivan,33575
+1203,Pickup Truck,46612
+1204,Crossover,41542
+1205,Sedan,41856
+1206,Pickup Truck,40978
+1207,Sports Car,40722
+1208,Coupe,31739
+1209,Sports Car,43694
+1210,Pickup Truck,37885
+1211,Station Wagon,43410
+1212,Minivan,49305
+1213,Crossover,52022
+1214,SUV,50827
+1215,Sedan,43657
+1216,Coupe,49088
+1217,Pickup Truck,47153
+1218,Hatchback,42767
+1219,Pickup Truck,53897
+1220,Convertible,33515
+1221,Sports Car,73127
+1222,SUV,46959
+1223,Pickup Truck,34475
+1224,Hatchback,43958
+1225,Convertible,41283
+1226,Sports Car,50422
+1227,Convertible,41083
+1228,Hatchback,33628
+1229,Crossover,54435
+1230,Coupe,46057
+1231,Sedan,58197
+1232,Minivan,55985
+1233,Crossover,64861
+1234,Minivan,63839
+1235,Coupe,42566
+1236,SUV,50941
+1237,Hatchback,48957
+1238,Coupe,55225
+1239,Pickup Truck,43326
+1240,Coupe,45646
+1241,Station Wagon,34850
+1242,Crossover,39907
+1243,SUV,25002
+1244,Crossover,51820
+1245,Sports Car,51868
+1246,Pickup Truck,49373
+1247,Minivan,56396
+1248,Hatchback,43066
+1249,Convertible,59285
+1250,Crossover,67072
+1251,Hatchback,40756
+1252,Convertible,51856
+1253,Coupe,55891
+1254,Pickup Truck,40238
+1255,Minivan,45684
+1256,Pickup Truck,51511
+1257,Coupe,62242
+1258,Coupe,55303
+1259,Pickup Truck,57206
+1260,Hatchback,55324
+1261,Pickup Truck,29927
+1262,Sports Car,47307
+1263,Station Wagon,51381
+1264,Station Wagon,37617
+1265,Hatchback,60397
+1266,Hatchback,45036
+1267,Sedan,57566
+1268,Sedan,50612
+1269,Minivan,46187
+1270,Coupe,62930
+1271,Pickup Truck,35442
+1272,Hatchback,50141
+1273,Crossover,33460
+1274,Crossover,57119
+1275,Station Wagon,32394
+1276,Crossover,38182
+1277,Hatchback,36320
+1278,Crossover,44156
+1279,Coupe,41846
+1280,SUV,53111
+1281,Pickup Truck,40876
+1282,Coupe,62003
+1283,Coupe,36034
+1284,Minivan,43652
+1285,Hatchback,46312
+1286,Crossover,41250
+1287,Hatchback,54137
+1288,Sedan,58017
+1289,Pickup Truck,36584
+1290,Minivan,50323
+1291,Crossover,46341
+1292,Minivan,41484
+1293,SUV,49422
+1294,Convertible,63152
+1295,Coupe,37249
+1296,Pickup Truck,43022
+1297,Coupe,44921
+1298,Minivan,46687
+1299,Hatchback,65107
+1300,Crossover,37972
+1301,Sedan,73432
+1302,Coupe,66754
+1303,Station Wagon,49702
+1304,Crossover,47515
+1305,Station Wagon,64869
+1306,Coupe,45799
+1307,SUV,48643
+1308,Coupe,40760
+1309,Convertible,53778
+1310,Minivan,56476
+1311,Sedan,48793
+1312,Convertible,50690
+1313,Convertible,46446
+1314,SUV,53522
+1315,Minivan,52639
+1316,Sedan,49241
+1317,Crossover,57422
+1318,Minivan,45786
+1319,Sedan,35147
+1320,Station Wagon,52253
+1321,Pickup Truck,47944
+1322,Station Wagon,44886
+1323,Convertible,55880
+1324,Pickup Truck,57157
+1325,SUV,41534
+1326,Hatchback,34459
+1327,Convertible,45100
+1328,Station Wagon,48555
+1329,Hatchback,50668
+1330,Pickup Truck,29834
+1331,Station Wagon,60639
+1332,SUV,40408
+1333,Sedan,39723
+1334,Coupe,27670
+1335,Sports Car,52676
+1336,Hatchback,58338
+1337,Hatchback,46677
+1338,Convertible,49089
+1339,Hatchback,57437
+1340,Sedan,47403
+1341,Crossover,45436
+1342,Station Wagon,19611
+1343,Station Wagon,38169
+1344,Pickup Truck,50965
+1345,Crossover,42738
+1346,Minivan,36175
+1347,Sports Car,53595
+1348,Sedan,27827
+1349,Crossover,48366
+1350,Sports Car,49364
+1351,Convertible,34992
+1352,Station Wagon,43366
+1353,Crossover,63589
+1354,Convertible,54749
+1355,Sports Car,61412
+1356,Sports Car,45116
+1357,Hatchback,42516
+1358,Sports Car,47778
+1359,Minivan,55129
+1360,Hatchback,40512
+1361,Crossover,44901
+1362,SUV,54561
+1363,Crossover,49575
+1364,Station Wagon,47175
+1365,Crossover,42134
+1366,Hatchback,34663
+1367,Hatchback,56906
+1368,Coupe,29101
+1369,Hatchback,40148
+1370,Sedan,36784
+1371,Coupe,50937
+1372,Sedan,49544
+1373,Station Wagon,54305
+1374,Sedan,54179
+1375,Hatchback,45354
+1376,Sedan,52033
+1377,Crossover,54275
+1378,Sedan,41801
+1379,Coupe,26515
+1380,Crossover,47464
+1381,Sports Car,36701
+1382,Station Wagon,37545
+1383,Sports Car,44050
+1384,Sedan,34365
+1385,Sedan,45444
+1386,Coupe,42824
+1387,Sports Car,48303
+1388,Minivan,47827
+1389,SUV,23945
+1390,Sedan,29607
+1391,Sedan,46915
+1392,Sedan,33473
+1393,Coupe,43811
+1394,Convertible,44308
+1395,SUV,56556
+1396,Station Wagon,28803
+1397,Sports Car,48210
+1398,Station Wagon,63493
+1399,Pickup Truck,37142
+1400,SUV,57305
+1401,Minivan,42554
+1402,Crossover,36244
+1403,Crossover,33249
+1404,Convertible,32881
+1405,Minivan,51360
+1406,SUV,42831
+1407,Sports Car,51371
+1408,Convertible,32912
+1409,Convertible,46006
+1410,Sports Car,57859
+1411,SUV,41760
+1412,Minivan,39927
+1413,Sports Car,47920
+1414,Sedan,36488
+1415,Hatchback,28730
+1416,Convertible,36072
+1417,Minivan,38458
+1418,Pickup Truck,48920
+1419,Sports Car,30494
+1420,Sedan,53116
+1421,Convertible,37227
+1422,Coupe,33095
+1423,Crossover,53471
+1424,Crossover,60715
+1425,Sedan,39914
+1426,Crossover,44191
+1427,Sports Car,52884
+1428,Hatchback,60113
+1429,Hatchback,38803
+1430,Hatchback,24099
+1431,Sports Car,46206
+1432,Minivan,60191
+1433,Sports Car,59242
+1434,Sedan,56899
+1435,Hatchback,38459
+1436,Minivan,52435
+1437,Coupe,39450
+1438,Minivan,32135
+1439,Station Wagon,70017
+1440,Coupe,50855
+1441,SUV,42710
+1442,Minivan,45563
+1443,Minivan,42392
+1444,Hatchback,48857
+1445,Hatchback,54514
+1446,Sedan,55968
+1447,Station Wagon,42633
+1448,Coupe,56166
+1449,Station Wagon,55420
+1450,Pickup Truck,45683
+1451,SUV,36170
+1452,SUV,51457
+1453,Coupe,48146
+1454,Sports Car,38945
+1455,Station Wagon,54250
+1456,Station Wagon,51954
+1457,Sports Car,34396
+1458,Station Wagon,71747
+1459,Convertible,44356
+1460,Sports Car,30254
+1461,Station Wagon,60706
+1462,Minivan,42161
+1463,Sports Car,42541
+1464,Crossover,65515
+1465,Station Wagon,44123
+1466,SUV,34433
+1467,Crossover,48601
+1468,Hatchback,31019
+1469,Sedan,55734
+1470,Coupe,38715
+1471,Sedan,42518
+1472,Pickup Truck,47762
+1473,Sports Car,44200
+1474,Convertible,37075
+1475,Hatchback,42456
+1476,Minivan,44615
+1477,Minivan,33507
+1478,Sedan,47801
+1479,Station Wagon,47192
+1480,Crossover,58187
+1481,Sedan,48062
+1482,SUV,71721
+1483,Sports Car,45843
+1484,Convertible,47618
+1485,Coupe,46440
+1486,Sedan,41934
+1487,Station Wagon,39398
+1488,Pickup Truck,20611
+1489,Convertible,35335
+1490,Crossover,56728
+1491,Minivan,26820
+1492,Coupe,43812
+1493,Station Wagon,46687
+1494,Minivan,42546
+1495,Pickup Truck,58538
+1496,Hatchback,28660
+1497,Minivan,42619
+1498,SUV,38327
+1499,Coupe,40145
+1500,Sports Car,30389
+1501,Sports Car,52402
+1502,SUV,67775
+1503,Minivan,43266
+1504,Convertible,20220
+1505,Sedan,31974
+1506,Sports Car,43080
+1507,Sedan,43776
+1508,Sedan,44961
+1509,Pickup Truck,46758
+1510,Sports Car,39454
+1511,Hatchback,50349
+1512,Convertible,49512
+1513,SUV,39624
+1514,Sports Car,43552
+1515,Pickup Truck,43483
+1516,Station Wagon,42277
+1517,Hatchback,35076
+1518,Coupe,11273
+1519,Convertible,51061
+1520,Coupe,57154
+1521,Sedan,50486
+1522,Station Wagon,42438
+1523,Hatchback,33493
+1524,Crossover,46044
+1525,Crossover,32489
+1526,Hatchback,43511
+1527,Hatchback,48298
+1528,Convertible,43046
+1529,Crossover,44946
+1530,Sedan,41976
+1531,Minivan,40194
+1532,Coupe,59049
+1533,Station Wagon,22783
+1534,Coupe,44700
+1535,Sedan,25444
+1536,Sedan,32098
+1537,Pickup Truck,52400
+1538,Sedan,28802
+1539,SUV,60907
+1540,Station Wagon,44942
+1541,Minivan,49627
+1542,Sedan,37261
+1543,Hatchback,38673
+1544,Coupe,38765
+1545,Crossover,32366
+1546,Coupe,52976
+1547,Minivan,36397
+1548,Sports Car,30992
+1549,Crossover,53485
+1550,SUV,36735
+1551,Crossover,57849
+1552,Sedan,52817
+1553,Minivan,53149
+1554,Sports Car,38838
+1555,SUV,55774
+1556,Crossover,41366
+1557,Convertible,43306
+1558,Hatchback,60421
+1559,Sports Car,44052
+1560,Station Wagon,36218
+1561,Minivan,60130
+1562,Pickup Truck,54263
+1563,Sedan,49150
+1564,Station Wagon,55494
+1565,Hatchback,37437
+1566,Crossover,48292
+1567,Station Wagon,43189
+1568,Crossover,34201
+1569,Crossover,36675
+1570,SUV,45294
+1571,Convertible,41127
+1572,Pickup Truck,52801
+1573,Coupe,55894
+1574,Sports Car,42579
+1575,Pickup Truck,50079
+1576,Sports Car,40229
+1577,Sports Car,37533
+1578,Sedan,52255
+1579,Pickup Truck,46364
+1580,Coupe,45382
+1581,Coupe,34526
+1582,SUV,41740
+1583,Coupe,53766
+1584,Coupe,28812
+1585,Sedan,63643
+1586,Minivan,56948
+1587,Crossover,37331
+1588,Hatchback,26315
+1589,Minivan,49363
+1590,Minivan,58069
+1591,Pickup Truck,52867
+1592,Pickup Truck,36964
+1593,SUV,39581
+1594,Pickup Truck,46413
+1595,Hatchback,44199
+1596,Crossover,48687
+1597,Pickup Truck,27060
+1598,Pickup Truck,44603
+1599,Pickup Truck,49077
+1600,Convertible,50834
+1601,Convertible,49625
+1602,Pickup Truck,41338
+1603,Sports Car,36099
+1604,Station Wagon,33687
+1605,Station Wagon,47853
+1606,Hatchback,41805
+1607,Sports Car,30775
+1608,Hatchback,53668
+1609,Minivan,59352
+1610,Crossover,49263
+1611,Sedan,51527
+1612,Convertible,40603
+1613,Hatchback,47298
+1614,Convertible,61822
+1615,Hatchback,36147
+1616,Pickup Truck,58815
+1617,Hatchback,50864
+1618,Sports Car,65016
+1619,SUV,48933
+1620,Station Wagon,37467
+1621,Station Wagon,40419
+1622,Sports Car,43129
+1623,Sports Car,55813
+1624,Convertible,46646
+1625,Sedan,30828
+1626,Sports Car,62319
+1627,Hatchback,54082
+1628,SUV,47095
+1629,Minivan,28188
+1630,Pickup Truck,52665
+1631,Crossover,37418
+1632,Convertible,51894
+1633,Station Wagon,49964
+1634,Convertible,58139
+1635,Coupe,40203
+1636,Station Wagon,54777
+1637,Pickup Truck,24508
+1638,Station Wagon,48734
+1639,Sedan,55742
+1640,Sedan,38473
+1641,Station Wagon,41683
+1642,Hatchback,36515
+1643,Station Wagon,58782
+1644,Minivan,51088
+1645,Minivan,55316
+1646,Convertible,42550
+1647,Sedan,44014
+1648,Convertible,50857
+1649,Crossover,63623
+1650,SUV,38114
+1651,SUV,44332
+1652,Minivan,47344
+1653,Sedan,41775
+1654,Convertible,55103
+1655,Crossover,43670
+1656,Minivan,50357
+1657,Convertible,36455
+1658,Station Wagon,48279
+1659,Pickup Truck,42399
+1660,Minivan,34621
+1661,Convertible,42156
+1662,Minivan,22066
+1663,Station Wagon,47260
+1664,Minivan,58673
+1665,Station Wagon,56588
+1666,SUV,63101
+1667,SUV,48744
+1668,Minivan,56092
+1669,Pickup Truck,35206
+1670,Convertible,47593
+1671,Station Wagon,40588
+1672,Sports Car,49920
+1673,Minivan,49741
+1674,Convertible,39546
+1675,Hatchback,53716
+1676,Sedan,41655
+1677,Crossover,47517
+1678,Station Wagon,41871
+1679,Convertible,50687
+1680,Station Wagon,40042
+1681,Hatchback,47289
+1682,Pickup Truck,50886
+1683,Hatchback,56212
+1684,Hatchback,47504
+1685,Crossover,35832
+1686,Pickup Truck,47234
+1687,Crossover,40418
+1688,SUV,50039
+1689,Sports Car,36606
+1690,Sedan,35872
+1691,Minivan,45724
+1692,Sports Car,43368
+1693,Hatchback,42857
+1694,Station Wagon,48887
+1695,Sports Car,38774
+1696,Minivan,42768
+1697,Pickup Truck,50427
+1698,Pickup Truck,37152
+1699,Convertible,57382
+1700,Minivan,55487
+1701,Convertible,51110
+1702,Sedan,44108
+1703,Crossover,41937
+1704,Pickup Truck,44976
+1705,Coupe,47363
+1706,SUV,33689
+1707,Sedan,42824
+1708,Hatchback,48421
+1709,SUV,58794
+1710,Station Wagon,36273
+1711,Crossover,44845
+1712,Sedan,39039
+1713,Coupe,43756
+1714,Convertible,42130
+1715,Convertible,21945
+1716,Minivan,37438
+1717,Crossover,32805
+1718,Pickup Truck,44731
+1719,Coupe,38667
+1720,Sedan,56120
+1721,Convertible,35554
+1722,Minivan,47222
+1723,Convertible,44892
+1724,Minivan,55818
+1725,Sedan,50919
+1726,Crossover,33706
+1727,Sedan,49792
+1728,Station Wagon,60773
+1729,Coupe,56521
+1730,Sports Car,47272
+1731,Sedan,56848
+1732,Sedan,38586
+1733,Coupe,38622
+1734,Crossover,48376
+1735,Minivan,45616
+1736,Pickup Truck,32397
+1737,Minivan,35545
+1738,Hatchback,45111
+1739,Minivan,50244
+1740,Hatchback,28698
+1741,Coupe,33369
+1742,Crossover,48860
+1743,Pickup Truck,55253
+1744,Hatchback,55300
+1745,Sedan,51173
+1746,Sedan,29389
+1747,Minivan,49642
+1748,SUV,50060
+1749,Hatchback,44721
+1750,SUV,37404
+1751,Hatchback,36121
+1752,Hatchback,62714
+1753,Sports Car,41844
+1754,Convertible,28107
+1755,Crossover,61527
+1756,Crossover,39138
+1757,Minivan,35200
+1758,Hatchback,32972
+1759,Pickup Truck,57252
+1760,Minivan,54051
+1761,Convertible,55645
+1762,Sedan,46239
+1763,Pickup Truck,44694
+1764,Station Wagon,31555
+1765,Pickup Truck,27427
+1766,Hatchback,38038
+1767,Pickup Truck,44233
+1768,SUV,45130
+1769,Pickup Truck,60107
+1770,Station Wagon,43183
+1771,Sports Car,39341
+1772,Station Wagon,32028
+1773,Convertible,48308
+1774,SUV,46382
+1775,Coupe,39592
+1776,Crossover,43718
+1777,Hatchback,47221
+1778,Hatchback,46185
+1779,SUV,54541
+1780,SUV,39767
+1781,Minivan,40781
+1782,Convertible,69922
+1783,Coupe,43515
+1784,Station Wagon,28448
+1785,Hatchback,38426
+1786,SUV,46708
+1787,Sports Car,41553
+1788,Coupe,52549
+1789,SUV,53265
+1790,Sports Car,36653
+1791,Station Wagon,40170
+1792,Coupe,39440
+1793,Coupe,55055
+1794,Pickup Truck,49459
+1795,Sedan,40304
+1796,Sedan,45508
+1797,Sports Car,59431
+1798,Coupe,43668
+1799,Convertible,69149
+1800,Convertible,35967
+1801,Coupe,59801
+1802,Station Wagon,43444
+1803,Station Wagon,44582
+1804,Crossover,42267
+1805,Station Wagon,43311
+1806,Crossover,37434
+1807,Crossover,47258
+1808,Hatchback,42034
+1809,Hatchback,55721
+1810,Sports Car,45912
+1811,Sedan,51094
+1812,SUV,53017
+1813,Sports Car,47110
+1814,Hatchback,42989
+1815,Minivan,37395
+1816,Minivan,49505
+1817,Crossover,59719
+1818,Minivan,45077
+1819,Minivan,32158
+1820,Sedan,25840
+1821,Station Wagon,48519
+1822,Pickup Truck,38885
+1823,Minivan,37760
+1824,Convertible,55709
+1825,Sports Car,29587
+1826,Crossover,47794
+1827,Crossover,38999
+1828,Sedan,36752
+1829,Sedan,62481
+1830,Coupe,40985
+1831,SUV,55895
+1832,Minivan,40345
+1833,Minivan,40462
+1834,Coupe,51530
+1835,Hatchback,29942
+1836,Minivan,53040
+1837,Coupe,44553
+1838,Crossover,27557
+1839,Station Wagon,44565
+1840,Pickup Truck,49629
+1841,Hatchback,50686
+1842,Pickup Truck,27901
+1843,SUV,39795
+1844,Minivan,53314
+1845,Hatchback,40939
+1846,SUV,29819
+1847,Hatchback,32091
+1848,Hatchback,29159
+1849,Minivan,43979
+1850,Station Wagon,42424
+1851,Minivan,47205
+1852,Coupe,37626
+1853,Pickup Truck,38552
+1854,Station Wagon,30621
+1855,SUV,32376
+1856,Sedan,41558
+1857,Minivan,23502
+1858,Convertible,51159
+1859,Crossover,51000
+1860,Coupe,53274
+1861,SUV,36670
+1862,Convertible,40817
+1863,Minivan,56019
+1864,SUV,42463
+1865,Sedan,58381
+1866,Crossover,47024
+1867,SUV,56926
+1868,Crossover,45538
+1869,Pickup Truck,72009
+1870,Coupe,41291
+1871,Crossover,38986
+1872,Coupe,43112
+1873,Station Wagon,58867
+1874,Coupe,33033
+1875,Hatchback,46919
+1876,Sports Car,50465
+1877,Station Wagon,52908
+1878,Sports Car,46294
+1879,Convertible,58559
+1880,Minivan,36966
+1881,Hatchback,36478
+1882,Station Wagon,59055
+1883,Minivan,49763
+1884,Convertible,27601
+1885,Minivan,53540
+1886,Station Wagon,50281
+1887,Minivan,35238
+1888,Hatchback,35478
+1889,SUV,57821
+1890,Crossover,38237
+1891,Minivan,44073
+1892,Sports Car,22942
+1893,Hatchback,55461
+1894,Pickup Truck,59803
+1895,Sports Car,44170
+1896,Sports Car,43883
+1897,Sedan,50855
+1898,SUV,68748
+1899,Sports Car,60603
+1900,Sports Car,63880
+1901,Hatchback,39545
+1902,Pickup Truck,35005
+1903,Hatchback,51549
+1904,Sedan,34619
+1905,Pickup Truck,49550
+1906,Coupe,56206
+1907,Pickup Truck,30737
+1908,Sedan,53541
+1909,Hatchback,22122
+1910,Coupe,52151
+1911,Hatchback,48112
+1912,Sedan,47451
+1913,Pickup Truck,53027
+1914,Convertible,44652
+1915,Convertible,42430
+1916,Minivan,48725
+1917,Sedan,46013
+1918,Sports Car,37924
+1919,Minivan,44612
+1920,Minivan,38375
+1921,Sedan,52815
+1922,Minivan,63708
+1923,Minivan,41950
+1924,SUV,31925
+1925,Sports Car,37595
+1926,Pickup Truck,49491
+1927,Station Wagon,54237
+1928,Sports Car,47107
+1929,Sedan,57312
+1930,Minivan,48532
+1931,Sedan,27647
+1932,Minivan,46644
+1933,Station Wagon,25144
+1934,Convertible,50270
+1935,Minivan,50600
+1936,Hatchback,35511
+1937,Convertible,36084
+1938,Coupe,38034
+1939,Convertible,62062
+1940,Pickup Truck,46188
+1941,Pickup Truck,49346
+1942,Pickup Truck,49959
+1943,Crossover,40924
+1944,Sedan,51000
+1945,Sedan,48004
+1946,Station Wagon,24834
+1947,Coupe,39309
+1948,SUV,45560
+1949,Convertible,47793
+1950,Pickup Truck,41732
+1951,Sports Car,42466
+1952,Crossover,32306
+1953,Sports Car,56930
+1954,SUV,42124
+1955,Pickup Truck,36884
+1956,Sports Car,37289
+1957,Minivan,47563
+1958,Sports Car,47884
+1959,Pickup Truck,41967
+1960,SUV,42287
+1961,Crossover,63179
+1962,Minivan,25212
+1963,Convertible,43517
+1964,Hatchback,51088
+1965,Crossover,51525
+1966,Crossover,50067
+1967,Crossover,27664
+1968,Minivan,45679
+1969,Coupe,45678
+1970,SUV,16970
+1971,Sports Car,48097
+1972,SUV,51852
+1973,Minivan,50656
+1974,Convertible,71717
+1975,Convertible,42691
+1976,Minivan,39593
+1977,Sports Car,34302
+1978,Hatchback,42280
+1979,Station Wagon,52698
+1980,SUV,58869
+1981,Coupe,39567
+1982,Hatchback,53893
+1983,Crossover,38240
+1984,SUV,53595
+1985,Station Wagon,52191
+1986,SUV,49996
+1987,SUV,40467
+1988,Sedan,66768
+1989,Hatchback,59653
+1990,Coupe,39157
+1991,Sports Car,37830
+1992,Hatchback,26116
+1993,Sports Car,57582
+1994,Sports Car,34550
+1995,Crossover,27999
+1996,Convertible,44401
+1997,SUV,34978
+1998,SUV,32704
+1999,Coupe,38735
+2000,Minivan,44522
